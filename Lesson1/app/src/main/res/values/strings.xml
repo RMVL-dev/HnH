@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lesson1</string>
+    <string name="to_second_activity">To Second</string>
+    <string name="to_third_activity">To Third</string>
+    <string name="save_student">save student</string>
+    <string name="print_student_list">print student list</string>
+</resources>
