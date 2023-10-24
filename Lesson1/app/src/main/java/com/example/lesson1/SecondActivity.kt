@@ -19,7 +19,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
+        setContentView(binding?.root)
         binding?.apply {
             secondActivity = this@SecondActivity
         }
@@ -33,7 +33,7 @@ class SecondActivity : AppCompatActivity() {
         binding = null
     }
 
-    /* printing all students */
+    /** printing all students */
     fun printStudentList(){
         if (!students.isNullOrEmpty()) {
             binding?.tvStudentsList?.text = ""
@@ -43,7 +43,7 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    /* save student method */
+    /** save student method */
     fun saveStudent(){
         if (binding?.etInputStudentsName.toString().isNotEmpty()){
             students?.add(binding?.etInputStudentsName?.text.toString())

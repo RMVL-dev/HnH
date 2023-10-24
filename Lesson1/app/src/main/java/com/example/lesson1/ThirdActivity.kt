@@ -39,6 +39,8 @@ class ThirdActivity : AppCompatActivity() {
                     )
                 }catch (e:IndexOutOfBoundsException){
                     Toast.makeText(this, "invalid data", Toast.LENGTH_LONG).show()
+                }catch (e:NullPointerException){
+                    Toast.makeText(this, "trying access to null", Toast.LENGTH_LONG).show()
                 }
                 binding?.etInputStudentsName?.text?.clear()
                 return@setOnKeyListener true

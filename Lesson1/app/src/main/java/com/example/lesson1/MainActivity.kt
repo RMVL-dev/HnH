@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //method for navigation to second activity
+    /**method for navigation to second activity*/
     fun goToSecondActivity(){
         startActivity(SecondActivity.secondActivityIntent(this))
     }
 
-    //method for navigation to third activity
+    /**method for navigation to third activity*/
     fun goToThirdActivity(){
         startActivity(ThirdActivity.thirdActivityIntent(this))
     }
