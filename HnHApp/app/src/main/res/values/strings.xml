@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HnHApp</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_in_title">@string/sign_in</string>
+    <string name="sign_in_login_hint">Логин</string>
+    <string name="sign_in_password_hint">Пароль</string>
+    <string name="sign_in_action">@string/sign_in</string>
 </resources>

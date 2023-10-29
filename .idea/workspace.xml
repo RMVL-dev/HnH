@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d077c1cf-00d7-4dac-af1f-d613dee9cd91" name="Changes" comment="lesson1" />
+    <list default="true" id="d077c1cf-00d7-4dac-af1f-d613dee9cd91" name="Changes" comment="lesson1">
+      <change beforePath="$PROJECT_DIR$/HnHApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HnHApp/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
