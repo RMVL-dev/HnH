@@ -5,5 +5,17 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.HnHApp" parent="Base.Theme.HnHApp" />
+    <style name="Theme.HnHApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/black_20pc</item>
+        <item name="android:navigationBarColor">@color/white_50pc</item>
+        <item name="colorPrimary">@color/smalt</item>
+        <item name="textInputStyle">@style/Theme.HnHApp.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Theme.HnH.Button</item>
+    </style>
+
+    <style name="Base.V27.Theme"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">@color/black_20pc</item>
+    </style>
+
 </resources>
