@@ -8,4 +8,5 @@
     <dimen name="text_field">16sp</dimen>
     <dimen name="text_field_hint">@dimen/text_field</dimen>
     <dimen name="text_material_button">16sp</dimen>
+    <dimen name="error_assistive_text">@dimen/text_field</dimen>
 </resources>

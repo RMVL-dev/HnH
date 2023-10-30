@@ -28,6 +28,10 @@
     <style name="TextAppearanceHnH.materialButton">
         <item name="android:textSize">@dimen/text_material_button</item>
     </style>
+
+    <style name="TextAppearanceHnH.error" >
+        <item name="android:textSize">@dimen/error_assistive_text</item>
+    </style>
     
     <style name="Theme.HnHApp.TextInputLayout"
         parent="Widget.Material3.TextInputLayout.FilledBox">
@@ -39,6 +43,11 @@
         <item name="android:textColorHint">@color/silver_chalice</item>
         <item name="hintTextColor">@color/silver_chalice</item>
         <item name="endIconTint">@color/black</item>
+        <item name="endIconDrawable">@drawable/password_toggle</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="boxStrokeErrorColor">@color/error_sign_in</item>
+        <item name="errorTextAppearance">@style/TextAppearanceHnH.error</item>
+        <item name="errorTextColor">@color/error_sign_in</item>
     </style>
 
     <style name="Theme.HnH.Button"

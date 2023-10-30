@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.example.hnhapp.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -18,6 +19,27 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        //Test colors on error mode
+        binding.etPassword.doOnTextChanged { text, start, before, count ->
+            if (text!!.length > 1){
+                binding.tilPassword.error = getString(R.string.error_sign_in)
+            }else{
+                binding.tilPassword.error = null
+            }
+        }
+
+        //Test colors on error mode
+        binding.etLogin.doOnTextChanged { text, start, before, count ->
+            if (text!!.length > 1){
+                binding.tilLogin.error = getString(R.string.error_sign_in)
+            }else{
+                binding.tilLogin.error = null
+            }
+        }
     }
 
     override fun onDestroyView() {
