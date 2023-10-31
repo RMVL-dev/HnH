@@ -1,0 +1,18 @@
+Index: lesson22/app/src/main/java/com/example/lesson22/FirstFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.lesson22\n\nimport android.os.Bundle\nimport android.view.LayoutInflater\nimport android.view.View\nimport android.view.ViewGroup\nimport androidx.fragment.app.Fragment\nimport com.example.lesson22.databinding.FragmentFirstBinding\n\nclass FirstFragment : Fragment() {\n    private var binding:FragmentFirstBinding? = null\n    override fun onCreateView(\n        inflater: LayoutInflater, container: ViewGroup?,\n        savedInstanceState: Bundle?\n    ): View? {\n        // Inflate the layout for this fragment\n        binding = FragmentFirstBinding.inflate(inflater, container, false)\n        return binding?.root\n    }\n\n\n    override fun onDestroyView() {\n        super.onDestroyView()\n        binding = null\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lesson22/app/src/main/java/com/example/lesson22/FirstFragment.kt b/lesson22/app/src/main/java/com/example/lesson22/FirstFragment.kt
+--- a/lesson22/app/src/main/java/com/example/lesson22/FirstFragment.kt	(revision 65c1407e65516e8c627dcde77fead350d2729664)
++++ b/lesson22/app/src/main/java/com/example/lesson22/FirstFragment.kt	(date 1698783974855)
+@@ -18,7 +18,6 @@
+         return binding?.root
+     }
+ 
+-
+     override fun onDestroyView() {
+         super.onDestroyView()
+         binding = null
