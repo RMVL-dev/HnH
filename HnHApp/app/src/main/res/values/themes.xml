@@ -13,9 +13,6 @@
         <item name="materialButtonStyle">@style/Theme.HnH.Button</item>
     </style>
 
-    <style name="Base.V27.Theme"
-        parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:navigationBarColor">@color/black_20pc</item>
-    </style>
+
 
 </resources>

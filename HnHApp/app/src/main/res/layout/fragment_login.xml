@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
         android:layout_marginTop="@dimen/normal_200"
-        style="@style/TextAppearanceHnH.H1"
+        android:textAppearance="@style/TextAppearanceHnH.H1"
 
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintVertical_bias="0.33"
