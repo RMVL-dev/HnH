@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.example.hnhapp.R
 import com.example.hnhapp.databinding.FragmentLoginBinding
 
@@ -26,6 +27,7 @@ class LoginFragment : Fragment() {
 
         //Test colors on error mode
         binding.etPassword.doOnTextChanged { text, start, before, count ->
+
             if (text!!.length > 1){
                 binding.tilPassword.error = getString(R.string.error_sign_in)
             }else{
@@ -40,6 +42,10 @@ class LoginFragment : Fragment() {
             }else{
                 binding.tilLogin.error = null
             }
+        }
+
+        binding.btSignInAction.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_lesson4Fragment)
         }
     }
 

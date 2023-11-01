@@ -9,5 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="com.example.hnhapp.signinfragment.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_lesson4Fragment"
+            app:destination="@id/lesson4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lesson4Fragment"
+        android:name="com.example.hnhapp.lesson4Fragment.Lesson4Fragment"
+        android:label="fragment_lesson4"
+        tools:layout="@layout/fragment_lesson4" />
 </navigation>
