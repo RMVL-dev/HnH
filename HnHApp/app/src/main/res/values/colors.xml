@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="smalt">#003594</color>
+    <color name="black_20pc">@color/black</color>
+    <color name="white_50pc">@color/white</color>
+    <color name="seashell">#FFF1F1F1</color>
+    <color name="silver_chalice">#FFA4A4A4</color>
+    <color name="error_sign_in">#FFED4337</color>
+    <color name="test_color">#FFBF40BF</color>
+</resources>

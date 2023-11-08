@@ -11,8 +11,9 @@
         android:id="@+id/tv_poem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment 1"
+        android:text="@string/poem"
         android:textAlignment="center"
+        android:textColor="@color/main_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_poem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@drawable/pushkin_signature"
+        android:src="@drawable/image_first_fragment"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

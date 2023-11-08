@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".signinfragment.LoginFragment"
+    android:layout_marginStart="@dimen/normal_100"
+    android:layout_marginEnd="@dimen/normal_100"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/tv_sign_in"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        android:layout_marginTop="@dimen/normal_200"
+        android:textAppearance="@style/TextAppearanceHnH.H1"
+
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/til_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/sign_in_login_hint"
+        android:layout_marginTop="@dimen/normal_200"
+
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_in"
+        app:layout_constraintBottom_toTopOf="@id/til_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/sign_in_password_hint"
+        android:layout_marginTop="@dimen/normal_200"
+
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:endIconMode="password_toggle"
+
+        app:layout_constraintTop_toBottomOf="@+id/til_login"
+        app:layout_constraintBottom_toTopOf="@+id/bt_sign_in_action"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_sign_in_action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_action"
+        android:layout_marginTop="@dimen/normal_300"
+
+        app:layout_constraintVertical_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

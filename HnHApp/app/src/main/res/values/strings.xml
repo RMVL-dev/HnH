@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HnHApp</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_in_title">@string/sign_in</string>
+    <string name="sign_in_login_hint">Логин</string>
+    <string name="sign_in_password_hint">Пароль</string>
+    <string name="sign_in_action">@string/sign_in</string>
+    <string name="error_sign_in">Поле заполнено не верно</string>
+    <!-- strings for lesson4 -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="til_hint_input">Введите</string>
+    <string name="bt_lesson4_name">Сохранить</string>
+
+</resources>
