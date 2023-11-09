@@ -23,7 +23,7 @@ class CustomView @JvmOverloads constructor(
     /**
      * дефолтные значения для цветов и размеров шрифтов
      */
-    private var TEXT_SIZE = context.spToPx(12)
+    private var TEXT_SIZE = context.spToPx(13)
     private var COLUMN_WIDTH = context.dpToPx(4)
     private var LINE_COLOR = Color.BLACK
     private var DATE_COLOR = Color.WHITE
@@ -51,7 +51,6 @@ class CustomView @JvmOverloads constructor(
         style = Paint.Style.FILL
         textSize = TEXT_SIZE
     }
-
 
     private val gestureDetector = GestureDetector(
         context,
@@ -86,21 +85,14 @@ class CustomView @JvmOverloads constructor(
         DATE_COLOR = typedArray.getColor(R.styleable.CustomView_date_text_color, DATE_COLOR)
         mainPaint.color = LINE_COLOR
         datePaint.color = DATE_COLOR
-        if (typedArray.getDimension(R.styleable.CustomView_line_weight, COLUMN_WIDTH) != 0f){
-            COLUMN_WIDTH = typedArray.getDimension(R.styleable.CustomView_line_weight, COLUMN_WIDTH)
-        }
-        if (typedArray.getDimension(R.styleable.CustomView_values_text_size, TEXT_SIZE) != 0f){
-            mainPaint.textSize = typedArray.getDimension(R.styleable.CustomView_values_text_size, TEXT_SIZE)
-        }
-        if (typedArray.getDimension(R.styleable.CustomView_dates_text_size, TEXT_SIZE) != 0f){
-            datePaint.textSize = typedArray.getDimension(R.styleable.CustomView_dates_text_size, TEXT_SIZE)
-        }
+        COLUMN_WIDTH = typedArray.getDimension(R.styleable.CustomView_line_weight, COLUMN_WIDTH)
+        mainPaint.textSize = typedArray.getDimension(R.styleable.CustomView_values_text_size, TEXT_SIZE)
+        datePaint.textSize = typedArray.getDimension(R.styleable.CustomView_dates_text_size, TEXT_SIZE)
         typedArray.recycle()
     }
 
     fun setData(data:List<Int>){
         _listOfValues = data.toMutableList()
-
     }
 
     private fun setTopPoints() {
@@ -112,7 +104,7 @@ class CustomView @JvmOverloads constructor(
              *      задаем отсутп сверху
              *      находим верхнюю точку столца просчитыая разницу между нижней точкой и размером столбца (значение из массива * цену деления)
              */
-            listOfTopPoints.add((height-50f) - ((height-100)/100)*listOfValues[iterator])
+            listOfTopPoints.add((height-height/6) - ((height-height/3f)/100)*listOfValues[iterator])
         }
     }
 
@@ -127,14 +119,25 @@ class CustomView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
+        /**
+         * Если не заданы размеры текста жестко то применяем изменяемый
+         * размер текста, зависящий от ширины так же и для ширины столбца
+         */
+
+        if (mainPaint.textSize == TEXT_SIZE){
+            mainPaint.textSize = width/30f
+        }
+        if (datePaint.textSize == TEXT_SIZE){
+            datePaint.textSize = width/30f
+        }
+        if (COLUMN_WIDTH == 10.5f){
+            COLUMN_WIDTH = width/95f
+        }
+
         repeat(listOfValues.size) {iterator ->
 
             val date = getDate(iterator)
 
-            /**
-             * Обсчет отступа столбцов друг от друга
-             * ((все пр-во - полезное пр-во) / кол-во пробелов) * счетчик + длинна столбцов отрисованных
-             */
             val offset = (width-COLUMN_WIDTH*listOfValues.size)/(listOfValues.size+1)*(iterator+1) + COLUMN_WIDTH*iterator
 
             drawOneItem(
@@ -155,18 +158,24 @@ class CustomView @JvmOverloads constructor(
         date:String,
         topPoint: Float
     ){
-
         val progressTextStartPoint = findTextStartPoint(percent.toString(), start, mainPaint)
         val dateTextStartPoint = findTextStartPoint(date, start, datePaint)
 
-        val bottom = height-50f
+        val bottom = height-height/6f
 
         /**
-         * Отрисовка компонента
+         * вычисляем 10% отступа от низа
          */
-        canvas.drawText(percent.toString(),progressTextStartPoint, topPoint-10f ,mainPaint)
+        val bottomTextOffset = bottom+(height*10f)/100
+
+        val topTextOffset = topPoint*5f/100
+        /**
+         * Отрисовка компонента
+         * Жестко пикселями задан отступ текста от столбца
+         */
+        canvas.drawText(percent.toString(),progressTextStartPoint, topPoint-topTextOffset ,mainPaint)
         canvas.drawRoundRect(start,topPoint, start+COLUMN_WIDTH,bottom,COLUMN_WIDTH,COLUMN_WIDTH, mainPaint )
-        canvas.drawText(date,dateTextStartPoint, bottom+30f ,datePaint)
+        canvas.drawText(date,dateTextStartPoint, bottomTextOffset,datePaint)
     }
 
     fun animationStart(){
@@ -174,7 +183,7 @@ class CustomView @JvmOverloads constructor(
 
             val topPoint = listOfTopPoints[iterator]
             val topRate = listOfValues[iterator]
-            val animationColumns = ValueAnimator.ofFloat(height - 50f, topPoint).apply {
+            val animationColumns = ValueAnimator.ofFloat(height-height/6f, topPoint).apply {
                 duration = 1500
                 addUpdateListener {
                     listOfTopPoints[iterator] = it.animatedValue as Float
