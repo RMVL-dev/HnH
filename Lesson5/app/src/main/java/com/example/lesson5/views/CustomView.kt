@@ -138,6 +138,11 @@ class CustomView @JvmOverloads constructor(
 
             val date = getDate(iterator)
 
+            /**
+             * Обсчет отступа столбцов друг от друга
+             * ((все пр-во - полезное пр-во) / кол-во пробелов) * счетчик + длинна столбцов отрисованных
+             */
+
             val offset = (width-COLUMN_WIDTH*listOfValues.size)/(listOfValues.size+1)*(iterator+1) + COLUMN_WIDTH*iterator
 
             drawOneItem(
