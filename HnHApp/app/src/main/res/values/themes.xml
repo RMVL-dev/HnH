@@ -11,6 +11,7 @@
         <item name="colorPrimary">@color/smalt</item>
         <item name="textInputStyle">@style/Theme.HnHApp.TextInputLayout</item>
         <item name="materialButtonStyle">@style/Theme.HnH.Button</item>
+        <item name="circularProgressIndicatorStyle">@style/progressbar</item>
     </style>
 
 
