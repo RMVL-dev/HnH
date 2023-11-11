@@ -23,7 +23,7 @@ class Lesson4Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLesson4Binding.inflate(inflater, container, false)
         //binding.tvLesson4.text = viewModel.someVariable.value

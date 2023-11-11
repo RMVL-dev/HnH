@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         fitContentViewToInsets()
 
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-
-        navController = navHostFragment.navController
+        //val navHostFragment = supportFragmentManager
+        //    .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+//
+        //navController = navHostFragment.navController
     }
 
     private fun fitContentViewToInsets(){
