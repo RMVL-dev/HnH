@@ -2,7 +2,6 @@ package com.example.hnhapp.signinfragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.createViewModelLazy
-import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.navigation.fragment.findNavController
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentLoginBinding
@@ -53,10 +49,10 @@ class LoginFragment : Fragment() {
 
             if (text!!.isNullOrEmpty()){
                 binding.tilPassword.error = getString(R.string.error_sign_in)
-                binding.btSignInAction.isEnabled = false
+                binding.vgBtSignInAction.buttonState(enable = false)
             }else{
                 binding.tilPassword.error = null
-                binding.btSignInAction.isEnabled = true
+                binding.vgBtSignInAction.buttonState(enable = true)
             }
         }
 
@@ -64,38 +60,38 @@ class LoginFragment : Fragment() {
             val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
             if (text!!.matches(emailPattern) && text.isNotEmpty()){
                 binding.tilLogin.error = null
-                binding.btSignInAction.isEnabled = true
+                binding.vgBtSignInAction.buttonState(enable = true)
             }
             else{
                 binding.tilLogin.error = getString(R.string.error_sign_in)
-                binding.btSignInAction.isEnabled = false
+                binding.vgBtSignInAction.buttonState(enable = false)
+
             }
         }
+
 
         signInViewModel.loginLiveData.observe(viewLifecycleOwner){ value ->
             when(value){
                 is ResponseState.Loading -> {
-                    binding.btSignInAction.text = ""
-                    binding.btProgressBar.show()
+                    binding.vgBtSignInAction.loading()
                 }
                 is ResponseState.Error -> {
                     Toast.makeText(context, "Ошибка: ${value.e}", Toast.LENGTH_SHORT).show()
-                    binding.btSignInAction.text = getString(R.string.sign_in_action)
-                    binding.btProgressBar.hide()
+                    binding.vgBtSignInAction.otherStates()
                 }
                 else -> {
-                    binding.btSignInAction.text = getString(R.string.sign_in_action)
-                    binding.btProgressBar.hide()
+                    binding.vgBtSignInAction.otherStates()
                 }
             }
         }
 
-        binding.btSignInAction.setOnClickListener {
+        binding.vgBtSignInAction.login {
             signInViewModel.login(
                 login = binding.etLogin.text.toString(),
                 password = binding.etPassword.text.toString()
             )
         }
+
     }
 
     override fun onDestroyView() {

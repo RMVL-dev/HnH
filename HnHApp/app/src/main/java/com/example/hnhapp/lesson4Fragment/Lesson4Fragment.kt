@@ -48,6 +48,7 @@ class Lesson4Fragment : Fragment() {
         //    }
         //}
 
+        //binding.vgButton
 
     }
 

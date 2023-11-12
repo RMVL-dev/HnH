@@ -26,4 +26,5 @@ class SharedPreferencesReq @Inject constructor(
     var userToken:String
         get() = pref.getString(PREF_USER_TOKEN, "") ?: ""
         set(value) = pref.edit{ putString(PREF_USER_TOKEN, value) }
+
 }

@@ -1,5 +1,6 @@
 package com.example.hnhapp.signinfragment
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,7 +26,7 @@ class SignInViewModel @Inject constructor(
     fun login(login:String, password:String){
         viewModelScope.launch {
             _loginLiveData.value = ResponseState.Loading()
-            //delay(5000L)
+            delay(5000L)
             _loginLiveData.value = try {
                 ResponseState.Success(
                     data = loginUseCase.execute(
