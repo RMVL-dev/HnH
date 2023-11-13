@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentLoginBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.hnhapp.utils.settingSnackBar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
         //validation for empty
         binding.etPassword.doOnTextChanged { text, start, before, count ->
 
-            if (text!!.isNullOrEmpty()){
+            if (text!!.isEmpty()){
                 binding.tilPassword.error = getString(R.string.error_sign_in)
                 binding.vgBtSignInAction.buttonState(enable = false)
             }else{
@@ -100,9 +100,3 @@ class LoginFragment : Fragment() {
     }
 
 }
-
-fun View.settingSnackBar():Snackbar =
-    Snackbar
-        .make(this, context.resources.getText(R.string.wrong), Snackbar.LENGTH_LONG)
-        .setBackgroundTint(context.resources.getColor(R.color.error_sign_in))
-        .setTextColor(context.resources.getColor(R.color.seashell))

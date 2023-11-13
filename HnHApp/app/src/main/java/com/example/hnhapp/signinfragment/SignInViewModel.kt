@@ -1,6 +1,5 @@
 package com.example.hnhapp.signinfragment
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,10 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hnhapp.data.requestModel.LoginResponse
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.domain.usecase.LoginUseCase
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.io.IOException
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -33,10 +29,8 @@ class SignInViewModel @Inject constructor(
                         password = password
                     )
                 )
-            }catch (ioException:IOException){
-                ResponseState.Error(e = ioException, loginUseCase.getError())
-            }catch (httpException:HttpException){
-                ResponseState.Error(e = httpException, loginUseCase.getError())
+            }catch (e:Exception){
+                ResponseState.Error(e = e)
             }
         }
     }
