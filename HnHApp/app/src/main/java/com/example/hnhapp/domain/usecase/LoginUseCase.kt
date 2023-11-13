@@ -17,8 +17,10 @@ class LoginUseCase @Inject constructor(
         return loginData
     }
 
-    fun getError():String =
-        sharedPreferences.userToken
+    fun getError():String {
+        return sharedPreferences.userToken
+    }
+
 
 
 }

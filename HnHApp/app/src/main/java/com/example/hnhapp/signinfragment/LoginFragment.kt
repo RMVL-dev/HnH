@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
                 }
                 is ResponseState.Error -> {
                     val snackbar = Snackbar
-                        .make(view, "${value.error}", Snackbar.LENGTH_LONG)
+                        .make(view, resources.getText(R.string.wrong), Snackbar.LENGTH_LONG)
                         .setBackgroundTint(resources.getColor(R.color.error_sign_in))
                         .setTextColor(resources.getColor(R.color.seashell))
                     snackbar.show()

@@ -8,7 +8,7 @@ import retrofit2.http.PUT
 
 interface HnHService {
 
-    @PUT("user/login")
+    @PUT("user/signin")
     suspend fun login( @Body requestLogin: RequestLogin):BaseResponse<LoginResponse>
 
 }
