@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -76,7 +78,11 @@ class LoginFragment : Fragment() {
                     binding.vgBtSignInAction.loading()
                 }
                 is ResponseState.Error -> {
-                    Toast.makeText(context, "Ошибка: ${value.e}", Toast.LENGTH_SHORT).show()
+                    val snackbar = Snackbar
+                        .make(view, "${value.error}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(resources.getColor(R.color.error_sign_in))
+                        .setTextColor(resources.getColor(R.color.seashell))
+                    snackbar.show()
                     binding.vgBtSignInAction.otherStates()
                 }
                 else -> {

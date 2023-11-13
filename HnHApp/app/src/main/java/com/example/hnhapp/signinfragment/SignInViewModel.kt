@@ -26,7 +26,6 @@ class SignInViewModel @Inject constructor(
     fun login(login:String, password:String){
         viewModelScope.launch {
             _loginLiveData.value = ResponseState.Loading()
-            delay(5000L)
             _loginLiveData.value = try {
                 ResponseState.Success(
                     data = loginUseCase.execute(
@@ -35,11 +34,9 @@ class SignInViewModel @Inject constructor(
                     )
                 )
             }catch (ioException:IOException){
-                ResponseState.Error(e = ioException)
+                ResponseState.Error(e = ioException, loginUseCase.getError())
             }catch (httpException:HttpException){
-                ResponseState.Error(e = httpException)
-            }catch (e:Exception){
-                ResponseState.Error(e = e)
+                ResponseState.Error(e = httpException, loginUseCase.getError())
             }
         }
     }
