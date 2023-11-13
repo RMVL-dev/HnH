@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
@@ -78,11 +76,7 @@ class LoginFragment : Fragment() {
                     binding.vgBtSignInAction.loading()
                 }
                 is ResponseState.Error -> {
-                    val snackbar = Snackbar
-                        .make(view, resources.getText(R.string.wrong), Snackbar.LENGTH_LONG)
-                        .setBackgroundTint(resources.getColor(R.color.error_sign_in))
-                        .setTextColor(resources.getColor(R.color.seashell))
-                    snackbar.show()
+                    view.settingSnackBar().show()
                     binding.vgBtSignInAction.otherStates()
                 }
                 else -> {
@@ -106,3 +100,9 @@ class LoginFragment : Fragment() {
     }
 
 }
+
+fun View.settingSnackBar():Snackbar =
+    Snackbar
+        .make(this, context.resources.getText(R.string.wrong), Snackbar.LENGTH_LONG)
+        .setBackgroundTint(context.resources.getColor(R.color.error_sign_in))
+        .setTextColor(context.resources.getColor(R.color.seashell))
