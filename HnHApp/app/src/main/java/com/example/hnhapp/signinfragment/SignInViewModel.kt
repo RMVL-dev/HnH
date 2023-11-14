@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hnhapp.data.requestModel.LoginResponse
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.domain.usecase.LoginUseCase
+import com.example.hnhapp.utils.getError
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
@@ -30,7 +31,10 @@ class SignInViewModel @Inject constructor(
                     )
                 )
             }catch (e:Exception){
-                ResponseState.Error(e = e)
+                ResponseState.Error(
+                    e = e,
+                    message = e.getError()
+                )
             }
         }
     }

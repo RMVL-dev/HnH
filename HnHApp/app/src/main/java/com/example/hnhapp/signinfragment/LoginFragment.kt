@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
         //validation for empty
         binding.etPassword.doOnTextChanged { text, start, before, count ->
 
-            if (text!!.isEmpty()){
+            if (text.isNullOrEmpty()){
                 binding.tilPassword.error = getString(R.string.error_sign_in)
                 binding.vgBtSignInAction.buttonState(enable = false)
             }else{
@@ -58,14 +58,17 @@ class LoginFragment : Fragment() {
 
         binding.etLogin.doOnTextChanged { text, start, before, count ->
             val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
-            if (text!!.matches(emailPattern) && text.isNotEmpty()){
-                binding.tilLogin.error = null
-                binding.vgBtSignInAction.buttonState(enable = true)
-            }
-            else{
+            if (text.isNullOrEmpty()){
                 binding.tilLogin.error = getString(R.string.error_sign_in)
                 binding.vgBtSignInAction.buttonState(enable = false)
-
+            }else{
+                if (text.matches(emailPattern)){
+                    binding.tilLogin.error = null
+                    binding.vgBtSignInAction.buttonState(enable = true)
+                }else{
+                    binding.tilLogin.error = getString(R.string.error_sign_in)
+                    binding.vgBtSignInAction.buttonState(enable = false)
+                }
             }
         }
 
@@ -76,7 +79,11 @@ class LoginFragment : Fragment() {
                     binding.vgBtSignInAction.loading()
                 }
                 is ResponseState.Error -> {
-                    view.settingSnackBar().show()
+                    value.message?.let {
+                        view.settingSnackBar(
+                            message = it
+                        ).show()
+                    }
                     binding.vgBtSignInAction.otherStates()
                 }
                 else -> {
