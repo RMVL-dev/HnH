@@ -56,4 +56,9 @@
         <item name="android:textAppearance">@style/TextAppearanceHnH.materialButton</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
+    <style name="progressbar" parent="Widget.Material3.CircularProgressIndicator.Small">
+        <item name="trackColor">@color/white</item>
+        <item name="android:indeterminate">true</item>
+    </style>
 </resources>

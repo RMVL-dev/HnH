@@ -15,7 +15,7 @@ import com.example.hnhapp.signinfragment.SignInViewModel
 
 class Lesson4Fragment : Fragment() {
 
-    private val viewModel:SignInViewModel by viewModels()
+    //private val viewModel:SignInViewModel by viewModels()
 
     private var _binding: FragmentLesson4Binding? = null
     private val binding get() = _binding!!
@@ -23,18 +23,18 @@ class Lesson4Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLesson4Binding.inflate(inflater, container, false)
-        binding.tvLesson4.text = viewModel.someVariable.value
+        //binding.tvLesson4.text = viewModel.someVariable.value
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btLesson4.setOnClickListener {
-            viewModel.changeSomeVariable(text = binding.etLesson4.text.toString())
-            binding.tvLesson4.text = viewModel.someVariable.value
-        }
+        //binding.btLesson4.setOnClickListener {
+        //    viewModel.changeSomeVariable(text = binding.etLesson4.text.toString())
+        //    binding.tvLesson4.text = viewModel.someVariable.value
+        //}
 
         //TODO: Задать вопрос как сделать чтобы ACTION_DONE распознававлся
         //binding.etLesson4.setOnKeyListener { view, keyCode, keyEvent ->
@@ -48,6 +48,7 @@ class Lesson4Fragment : Fragment() {
         //    }
         //}
 
+        //binding.vgButton
 
     }
 
