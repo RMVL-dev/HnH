@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentLoginBinding
@@ -86,8 +87,11 @@ class LoginFragment : Fragment() {
                     }
                     binding.vgBtSignInAction.otherStates()
                 }
-                else -> {
+                is ResponseState.Success -> {
                     binding.vgBtSignInAction.otherStates()
+                    findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToProductListFragment()
+                    )
                 }
             }
         }
