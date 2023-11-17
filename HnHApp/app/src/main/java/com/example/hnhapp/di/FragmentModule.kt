@@ -1,6 +1,6 @@
 package com.example.hnhapp.di
 
-import com.example.hnhapp.signinfragment.LoginFragment
+import com.example.hnhapp.presentation.signinfragment.LoginFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

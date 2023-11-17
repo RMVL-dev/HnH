@@ -1,4 +1,4 @@
-package com.example.hnhapp.lesson4Fragment
+package com.example.hnhapp.presentation.lesson4Fragment
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -11,7 +11,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.example.hnhapp.R
 import com.example.hnhapp.databinding.FragmentLesson4Binding
-import com.example.hnhapp.signinfragment.SignInViewModel
+import com.example.hnhapp.presentation.signinfragment.SignInViewModel
 
 class Lesson4Fragment : Fragment() {
 

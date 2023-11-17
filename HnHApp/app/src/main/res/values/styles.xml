@@ -16,6 +16,26 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
+    
+    <style name="TextAppearanceHnH.productItemTitle">
+        <item name="android:textSize">@dimen/normal_14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:layout_marginStart">@dimen/normal_100</item>
+        <item name="android:layout_marginEnd">@dimen/normal_100</item>
+    </style>
+
+    <style name="TextAppearanceHnH.productPrice">
+        <item name="android:textSize">@dimen/text_field</item>
+        <item name="android:paddingStart">@dimen/normal_200</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearanceHnH.productItemDepartment">
+        <item name="android:textColor">@color/silver_chalice</item>
+        <item name="android:textSize">@dimen/normal_12sp</item>
+        <item name="android:layout_margin">@dimen/normal_100</item>
+    </style>
 
     <style name="TextAppearanceHnH.textField">
         <item name="android:textSize">@dimen/text_field</item>

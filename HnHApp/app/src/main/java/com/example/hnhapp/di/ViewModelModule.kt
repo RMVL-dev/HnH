@@ -2,7 +2,7 @@ package com.example.hnhapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.hnhapp.signinfragment.SignInViewModel
+import com.example.hnhapp.presentation.signinfragment.SignInViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -1,4 +1,4 @@
-package com.example.hnhapp.signinfragment
+package com.example.hnhapp.presentation.signinfragment
 
 import android.content.Context
 import android.os.Bundle
@@ -20,7 +20,7 @@ class LoginFragment : Fragment() {
     @Inject
     lateinit var loginViewModelFactory: ViewModelProvider.Factory
 
-    private val signInViewModel:SignInViewModel by createViewModelLazy(
+    private val signInViewModel: SignInViewModel by createViewModelLazy(
         SignInViewModel::class,
         {this.viewModelStore},
         factoryProducer = {loginViewModelFactory}

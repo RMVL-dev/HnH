@@ -11,5 +11,8 @@
     <string name="til_hint_input">Введите</string>
     <string name="bt_lesson4_name">Сохранить</string>
     <string name="wrong">Что то пошло не так</string>
-
+    <string name="preview_title_product">Nike Tampa Bay Buccaneers Super Bowl LV</string>
+    <string name="preview_department">Джерси</string>
+    <string name="preview_price">9 000 P</string>
+    <string name="bt_buy">Купить</string>
 </resources>
