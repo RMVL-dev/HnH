@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.google.android.material.button.MaterialButton
+import java.text.NumberFormat
+import java.util.Locale
 
 class ProductViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
@@ -22,7 +24,7 @@ class ProductViewHolder(view:View):RecyclerView.ViewHolder(view) {
     ){
         Glide.with(image).load(product.previewImageUrl).into(image)
         title.text = product.title
-        price.text = product.price
+        price.text = NumberFormat.getCurrencyInstance(Locale("ru", "RU")).format(product.price.toInt())
         department.text = product.department
         buy.setOnClickListener {
             click()

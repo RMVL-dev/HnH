@@ -21,20 +21,16 @@
         <item name="android:textSize">@dimen/normal_14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:inputType">textMultiLine</item>
-        <item name="android:layout_marginStart">@dimen/normal_100</item>
-        <item name="android:layout_marginEnd">@dimen/normal_100</item>
     </style>
 
     <style name="TextAppearanceHnH.productPrice">
         <item name="android:textSize">@dimen/text_field</item>
-        <item name="android:paddingStart">@dimen/normal_200</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearanceHnH.productItemDepartment">
         <item name="android:textColor">@color/silver_chalice</item>
         <item name="android:textSize">@dimen/normal_12sp</item>
-        <item name="android:layout_margin">@dimen/normal_100</item>
     </style>
 
     <style name="TextAppearanceHnH.textField">
@@ -51,6 +47,21 @@
 
     <style name="TextAppearanceHnH.error" >
         <item name="android:textSize">@dimen/error_assistive_text</item>
+    </style>
+
+    <style name="TextAppearanceHnH.errorHeader">
+        <item name="android:textSize">@dimen/normal_18sp</item>
+        <item name="android:textColor">@color/silver_chalice</item>
+    </style>
+
+    <style name="TextAppearanceHnH.errorMessage">
+        <item name="android:textSize">@dimen/normal_12sp</item>
+        <item name="android:textColor">@color/silver_chalice</item>
+    </style>
+
+    <style name="TextAppearanceHnH.ToolbarText" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:textSize">@dimen/normal_20sp</item>
+        <item name="android:titleTextColor">@color/silver_chalice</item>
     </style>
     
     <style name="Theme.HnHApp.TextInputLayout"

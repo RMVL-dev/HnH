@@ -15,4 +15,11 @@
     <string name="preview_department">Джерси</string>
     <string name="preview_price">9 000 P</string>
     <string name="bt_buy">Купить</string>
+    <string name="error_header">Произошла непредвиденная ошибка</string>
+    <string name="preview_error_message">Детальный текст ошибки, занимающий несколько строк</string>
+    <string name="button_error_update">обновить</string>
+    <string name="empty_list_header">Товары не были обнаружены</string>
+    <string name="empty_list_message">Попробуйте обновить, вдруг товары появились</string>
+    <string name="toolbar_catalog">Каталог</string>
+    <string name="account">Аккаунт</string>
 </resources>
