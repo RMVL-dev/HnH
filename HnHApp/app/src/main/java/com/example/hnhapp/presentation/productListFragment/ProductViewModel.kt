@@ -19,6 +19,7 @@ class ProductViewModel @Inject constructor(
     private val _productLiveData = MutableLiveData<ResponseState<List<Product>>>()
     val productData: LiveData<ResponseState<List<Product>>> = _productLiveData
 
+
     fun getProductList(){
         viewModelScope.launch {
             _productLiveData.value = ResponseState.Loading()
@@ -31,6 +32,14 @@ class ProductViewModel @Inject constructor(
                     e = e,
                     message = e.getError()
                 )
+            }
+        }
+    }
+
+    fun addProductsToDBs(products: List<Product>){
+        viewModelScope.launch {
+            for (product in products){
+                useCase.addProduct(product = product)
             }
         }
     }

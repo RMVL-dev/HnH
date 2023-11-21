@@ -69,6 +69,7 @@ class ProductListFragment : Fragment() {
                     binding.errorScreen.setOkState()
                 }
                 is ResponseState.Success -> {
+                    productViewModel.addProductsToDBs(value.data)
                     if (value.data.isNotEmpty()) {
                         binding.progressCircular.visibility = View.GONE
                         binding.rvProducts.addItemDecoration(

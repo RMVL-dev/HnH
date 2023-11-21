@@ -11,4 +11,9 @@ class ProductUseCase @Inject constructor(
     suspend fun getProductList(): List<Product> =
         repository.getProductList()
 
+    //suspend fun getProductsFromDBs() =
+    //    repository.getProductFromDBs()
+
+    suspend fun addProduct(product: Product) =
+        repository.addProductsToDBs(product = product)
 }
