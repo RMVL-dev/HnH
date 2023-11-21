@@ -3,6 +3,7 @@ package com.example.hnhapp.presentation.productListFragment.adapter
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hnhapp.R
@@ -18,8 +19,10 @@ class ProductViewHolder(view:View):RecyclerView.ViewHolder(view) {
     private val price = view.findViewById<TextView>(R.id.product_price)
     private val department = view.findViewById<TextView>(R.id.product_department)
     private val buy = view.findViewById<MaterialButton>(R.id.product_buy)
+    private val cardView = view.findViewById<CardView>(R.id.card_view)
     fun bind(
-        click: () -> Unit,
+        buttonClick: () -> Unit,
+        cardClick: () -> Unit,
         product: Product
     ){
         Glide.with(image).load(product.previewImageUrl).into(image)
@@ -27,8 +30,12 @@ class ProductViewHolder(view:View):RecyclerView.ViewHolder(view) {
         price.text = NumberFormat.getCurrencyInstance(Locale("ru", "RU")).format(product.price.toInt())
         department.text = product.department
         buy.setOnClickListener {
-            click()
+            buttonClick()
+        }
+        cardView.setOnClickListener {
+            cardClick()
         }
     }
+
 
 }

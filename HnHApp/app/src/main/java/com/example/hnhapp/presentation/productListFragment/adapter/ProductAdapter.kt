@@ -23,8 +23,11 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.bind(
-            click = {
+            buttonClick = {
                     _onClick()
+            },
+            cardClick = {
+
             },
             product = productList[position]
         )
@@ -33,4 +36,5 @@ class ProductAdapter(
     fun setOnClick(click:()->Unit){
         _onClick = click
     }
+
 }

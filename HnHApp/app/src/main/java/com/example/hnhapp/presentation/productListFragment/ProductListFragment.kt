@@ -11,13 +11,10 @@ import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hnhapp.R
-import com.example.hnhapp.custom.views.ErrorScreen
+import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.data.responseModel.ResponseState
-import com.example.hnhapp.databinding.ErrorScreenBinding
 import com.example.hnhapp.databinding.FragmentProductListBinding
 import com.example.hnhapp.presentation.productListFragment.adapter.ProductAdapter
-import com.example.hnhapp.utils.settingSnackBar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -54,8 +51,7 @@ class ProductListFragment : Fragment() {
         productViewModel.productData.observe(viewLifecycleOwner){value ->
             when(value){
                 is ResponseState.Error -> {
-                    binding.rvProducts.visibility = View.GONE
-                    binding.progressCircular.visibility = View.GONE
+                    errorOrEmptyState()
                     value.message?.let {
                         binding.errorScreen.setErrorState(
                             click = {productViewModel.getProductList()},
@@ -70,27 +66,11 @@ class ProductListFragment : Fragment() {
                 }
                 is ResponseState.Success -> {
                     if (value.data.isNotEmpty()) {
+                        initRecyclerView(data = value.data)
                         binding.progressCircular.visibility = View.GONE
-                        binding.rvProducts.addItemDecoration(
-                            DividerItemDecoration(
-                                requireContext(),
-                                RecyclerView.VERTICAL
-                            )
-                        )
-                        val adapter = ProductAdapter(value.data)
-                        adapter.setOnClick {
-                            Toast.makeText(
-                                requireContext(),
-                                "BUY button clicked!",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                        binding.rvProducts.adapter = adapter
-                        binding.rvProducts.visibility = View.VISIBLE
                         binding.errorScreen.setOkState()
                     }else{
-                        binding.rvProducts.visibility = View.GONE
-                        binding.progressCircular.visibility = View.GONE
+                        errorOrEmptyState()
                         binding.errorScreen.setErrorState {
                             productViewModel.getProductList()
                         }
@@ -100,6 +80,39 @@ class ProductListFragment : Fragment() {
         }
 
     }
+
+    private fun errorOrEmptyState(){
+        binding.rvProducts.visibility = View.GONE
+        binding.progressCircular.visibility = View.GONE
+    }
+
+
+
+    private fun getAdapter(data:List<Product>):ProductAdapter {
+        val adapter = ProductAdapter(data)
+        adapter.setOnClick {
+            Toast.makeText(
+                requireContext(),
+                "BUY button clicked!",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        return adapter
+    }
+
+
+    private fun initRecyclerView(data:List<Product>){
+        binding.rvProducts.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                RecyclerView.VERTICAL
+            )
+        )
+        binding.rvProducts.adapter = getAdapter(data)
+        binding.rvProducts.visibility = View.VISIBLE
+    }
+
+
 
 
     override fun onDestroyView() {
