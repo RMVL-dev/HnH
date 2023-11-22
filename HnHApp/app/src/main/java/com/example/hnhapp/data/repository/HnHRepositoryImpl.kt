@@ -24,4 +24,7 @@ class HnHRepositoryImpl @Inject constructor (
 
     suspend fun insertItem(entity: MainEntity) =
         dataSource.addItem(entity)
+
+    fun getAllProductsFromDB() =
+        dataSource.getProducts()
 }

@@ -47,14 +47,14 @@ class ProductListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        productViewModel.getProductList()
+        productViewModel.getAllItems()
         productViewModel.productData.observe(viewLifecycleOwner){value ->
             when(value){
                 is ResponseState.Error -> {
                     errorOrEmptyState()
                     value.message?.let {
                         binding.errorScreen.setErrorState(
-                            click = {productViewModel.getProductList()},
+                            click = { productViewModel.getAllItems() },
                             errorMes = it
                         )
                     }
@@ -66,22 +66,18 @@ class ProductListFragment : Fragment() {
                 }
                 is ResponseState.Success -> {
                     if (value.data.isNotEmpty()) {
-                        for (product in value.data){
-                            productViewModel.insertItem(product)
-                        }
                         initRecyclerView(data = value.data)
                         binding.progressCircular.visibility = View.GONE
                         binding.errorScreen.setOkState()
                     }else{
                         errorOrEmptyState()
                         binding.errorScreen.setErrorState {
-                            productViewModel.getProductList()
+                            productViewModel.getAllItems()
                         }
                     }
                 }
             }
         }
-
     }
 
     private fun errorOrEmptyState(){

@@ -17,4 +17,7 @@ class ProductUseCase @Inject constructor(
 
     suspend fun insertItem(entity: MainEntity) =
         repository.insertItem(entity)
+
+    fun getAllProducts() =
+        repository.getAllProductsFromDB()
 }
