@@ -66,6 +66,9 @@ class ProductListFragment : Fragment() {
                 }
                 is ResponseState.Success -> {
                     if (value.data.isNotEmpty()) {
+                        for (product in value.data){
+                            productViewModel.insertItem(product)
+                        }
                         initRecyclerView(data = value.data)
                         binding.progressCircular.visibility = View.GONE
                         binding.errorScreen.setOkState()
