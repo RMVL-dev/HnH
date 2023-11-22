@@ -15,7 +15,7 @@ import javax.inject.Singleton
         ApplicationModule::class,
         ActivityModule::class,
         FragmentModule::class,
-        TestStorageModule::class
+        StorageModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<HnHApplication> {

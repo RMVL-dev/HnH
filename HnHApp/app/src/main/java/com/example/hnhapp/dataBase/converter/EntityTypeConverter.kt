@@ -5,7 +5,7 @@ import com.example.hnhapp.data.productResponse.Product
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class TestEntityTypeConverter {
+class EntityTypeConverter {
 
     private val gson by lazy { Gson() }
 
