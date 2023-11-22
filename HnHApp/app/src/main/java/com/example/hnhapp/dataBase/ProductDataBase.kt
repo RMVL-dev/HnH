@@ -19,7 +19,7 @@ import com.example.hnhapp.dataBase.testEntitys.MainEntity
 )
 abstract class SecondTestDataBase: RoomDatabase() {
 
-    abstract fun createTestPlease(): TestProductDao
+    abstract fun createTestPlease(): ProductDao
 
 
 
