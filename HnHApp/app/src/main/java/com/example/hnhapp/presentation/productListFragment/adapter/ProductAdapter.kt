@@ -11,6 +11,7 @@ class ProductAdapter(
 ): RecyclerView.Adapter<ProductViewHolder>() {
 
     private var _onClick: () -> Unit = {}
+    private var _onCardClick: () -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -23,18 +24,18 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.bind(
-            buttonClick = {
-                    _onClick()
-            },
-            cardClick = {
-
-            },
+            buttonClick = { _onClick() },
+            cardClick = { _onCardClick() },
             product = productList[position]
         )
     }
 
     fun setOnClick(click:()->Unit){
         _onClick = click
+    }
+
+    fun onCardClick(click: () -> Unit){
+        _onCardClick = click
     }
 
 }

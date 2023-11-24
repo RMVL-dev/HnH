@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentProductListBinding
@@ -95,6 +97,9 @@ class ProductListFragment : Fragment() {
                 "BUY button clicked!",
                 Toast.LENGTH_LONG
             ).show()
+        }
+        adapter.onCardClick {
+            findNavController().navigate(R.id.action_productListFragment_to_productItemFragment)
         }
         return adapter
     }

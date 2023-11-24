@@ -10,7 +10,6 @@
         android:id="@+id/open_search_view_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/normal_100"
 
         app:title="@string/toolbar_catalog"
         style="@style/TextAppearanceHnH.ToolbarText"
