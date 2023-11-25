@@ -20,7 +20,7 @@ import com.example.hnhapp.dataBase.testEntitys.MainEntity
 abstract class ProductDataBase: RoomDatabase() {
 
     companion object{
-        const val DATA_BASE_VERSION = 1
+        const val DATA_BASE_VERSION = 2
         const val DATA_BASE_NAME = "database.db"
     }
 

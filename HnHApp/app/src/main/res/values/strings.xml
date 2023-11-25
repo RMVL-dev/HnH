@@ -22,4 +22,5 @@
     <string name="empty_list_message">Попробуйте обновить, вдруг товары появились</string>
     <string name="toolbar_catalog">Каталог</string>
     <string name="account">Аккаунт</string>
+    <string name="best_seller">Хит сезона</string>
 </resources>

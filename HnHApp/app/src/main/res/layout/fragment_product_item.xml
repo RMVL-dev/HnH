@@ -29,9 +29,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_100">
+
+            <TextView
+                android:id="@+id/product_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="@style/TextAppearanceHnH.productPrice"
+                android:textSize="24sp"
+
+                tools:text = "@string/preview_price"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/best_seller"
+                android:textColor="@color/white"
+                android:background="@drawable/best_seller_shape"
+                android:paddingStart= "15dp"
+                android:paddingEnd= "15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+
+                android:textSize="16sp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/product_item_price"
+                android:layout_alignBottom="@id/product_item_price"
+                />
 
 
 
+
+        </RelativeLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
