@@ -18,20 +18,19 @@ fun getFormattedCurrency(currency:String): String? =
     }
 
 @RequiresApi(Build.VERSION_CODES.P)
-fun convertListToStringWithBullets(list: List<String>):String?{
-    return if (list.isEmpty()){
+fun convertListToStringWithBullets(list: List<String>):String? =
+    if (list.isEmpty()){
         null
     }else{
         var mainString = ""
 
         for (item in list){
             mainString += if (list.indexOf(item) == 0)
-                item
+                "\u2022 $item"
             else
-                "\n$item"
+                "\n\u2022 $item"
         }
-        val spannableString = SpannableString(mainString)
-        spannableString.setSpan(BulletSpan(40, Color.GRAY,20),10,22,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.toString()
+        //val spannableString = SpannableString(mainString)
+        //spannableString.setSpan(BulletSpan(40, Color.GREEN,40),30,52,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        mainString
     }
-}

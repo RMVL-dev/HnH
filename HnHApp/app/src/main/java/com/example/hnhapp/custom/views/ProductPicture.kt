@@ -26,11 +26,13 @@ class ProductPicture @JvmOverloads constructor(
 
     fun setProduct(product: Product){
         this.product = product
+        initAdapter()
     }
 
     private fun initAdapter(){
         val adapter = ProductItemPicturesAdapter()
         adapter.setListPictures(list = product.images)
+        binding.carouselProductImages.adapter = adapter
     }
 
     override fun onDetachedFromWindow() {

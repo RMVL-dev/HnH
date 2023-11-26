@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
         />
 
 </merge>

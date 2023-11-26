@@ -24,4 +24,5 @@
     <string name="account">Аккаунт</string>
     <string name="best_seller">Хит сезона</string>
     <string name="buy_now">Купить сейчас</string>
+    <string name="size">Размер</string>
 </resources>

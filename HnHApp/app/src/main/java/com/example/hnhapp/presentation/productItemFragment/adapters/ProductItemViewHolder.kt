@@ -10,12 +10,14 @@ import com.example.hnhapp.R
 class ProductItemViewHolder(view: View):RecyclerView.ViewHolder(view) {
 
     private val image = view.findViewById<ImageView>(R.id.item_product_picture)
+    private val errorImage = view.resources
 
     fun bind(
         imageUrl: String
     ){
         Glide.with(image)
             .load(imageUrl)
+            .error(errorImage.getDrawable(R.drawable.error_image))
             .into(image)
 
     }

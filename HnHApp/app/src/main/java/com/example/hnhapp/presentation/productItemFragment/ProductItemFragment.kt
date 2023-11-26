@@ -59,21 +59,33 @@ class ProductItemFragment : Fragment() {
 
         val product = productViewModel.getProductByPosition(arg.product)
 
-        product?.let { product ->
-            initToolBar(title = product.title)
-            binding.productItemPrice.text = getFormattedCurrency(product.price)
+        product?.let { productItem ->
+            initToolBar(title = productItem.title)
+            binding.productItemTitle.text = productItem.title
+            binding.productItemPrice.text = getFormattedCurrency(productItem.price)
             binding.productBestSeller.visibility = if (arg.product%2 == 0) View.VISIBLE else View.GONE //чтобы не каждый был хит сезона :)
-            binding.productItemDepartment.text = product.department
-            binding.productDescription.text = product.description
-            //binding.productMaterials.text = product.details.toString() //TODO туть лист стрингов нужно в буллит сделать
-            binding.productMaterials.text = convertListToStringWithBullets(list = product.details) //todo нужно что-то с буллитами сделать
+            binding.productItemDepartment.text = productItem.department
+            binding.productDescription.text = productItem.description
+            binding.productMaterials.text = convertListToStringWithBullets(list = productItem.details) //todo нужно спросить про spannable String
+            binding.carouselProductImages.setProduct(product = productItem)
+            //Log.d("SIZES", "${product.sizes}")
+            binding.tilProductSize.setEndIconOnClickListener{
+                customClickToEditText(product = productItem)
+            }
         }
-
-        //todo ну тут помелочи осталось сделать карусель, обработку экранов ну типа чтобы и ошибка тоже была да и вроде все
-
 
     }
 
+    private fun customClickToEditText(product:Product){
+
+       val bottomSheet =  SizesBottomSheet(listSizes = product.sizes)
+
+        bottomSheet.setOnclick {position ->
+            binding.etProductSize.setText(product.sizes[position].value)
+        }
+
+        bottomSheet.show(requireActivity().supportFragmentManager,"tag")
+    }
 
     private fun initToolBar(title:String){
         binding.productItemToolbar
