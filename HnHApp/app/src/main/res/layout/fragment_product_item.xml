@@ -46,27 +46,104 @@
                 />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/product_best_seller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/best_seller"
-                android:textColor="@color/white"
-                android:background="@drawable/best_seller_shape"
-                android:paddingStart= "15dp"
-                android:paddingEnd= "15dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-
-                android:textSize="16sp"
+                style="@style/TextAppearanceHnH.Product.BS"
 
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/product_item_price"
                 android:layout_alignBottom="@id/product_item_price"
                 />
 
+            <TextView
+                android:id="@+id/product_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_item_price"
+                android:layout_marginTop="@dimen/normal_100"
+                android:textAppearance="@style/TextAppearanceHnH.Product.H1"
 
+                tools:text="Men's Nike Tom Brady Red Tampa Bay Buccaneers Super Bowl LV Bound Game Jersey"
+                />
 
+            <TextView
+                android:id="@+id/product_item_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_item_title"
+                android:textAppearance="@style/TextAppearanceHnH.Product.Department"
 
+                tools:text = "Джерси"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_product_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_item_department"
+                android:layout_marginTop="@dimen/normal_200"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/arrow_forward_24"
+                app:endIconTint="@color/smalt"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ed_product_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:hint="Размер"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@style/TextAppearanceHnH.Product.Description"
+                android:layout_marginTop="@dimen/normal_100"
+
+                tools:text="The Tampa Bay Buccaneers are headed to Super Bowl LV! As a major fan, this is no surprise but it's definitely worth celebrating, especially after the unprecedented 2020 NFL season. Add this Tom Brady Game Jersey to your collection to ensure you're Super Bowl ready. This Nike gear features bold commemorative graphics that will let the Tampa Bay Buccaneers know they have the best fans in the league."
+
+                android:layout_below="@+id/til_product_size"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/product_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_100"
+                android:layout_marginBottom="@dimen/normal_100"
+                android:layout_below="@+id/product_description"
+                />
+
+            <TextView
+                android:id="@+id/product_materials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="@style/TextAppearanceHnH.Product.Materials"
+
+                tools:text="logn long text"
+
+                android:layout_below="@+id/product_divider"
+                />
         </RelativeLayout>
     </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_product_buy_now"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100"
+
+        android:text="@string/buy_now"
+
+        app:layout_constraintBottom_toBottomOf="@+id/scroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

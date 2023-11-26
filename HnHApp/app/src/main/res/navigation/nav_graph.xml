@@ -27,5 +27,9 @@
         android:id="@+id/productItemFragment"
         android:name="com.example.hnhapp.presentation.productItemFragment.ProductItemFragment"
         android:label="fragment_product_item"
-        tools:layout="@layout/fragment_product_item" />
+        tools:layout="@layout/fragment_product_item" >
+        <argument
+            android:name="product"
+            app:argType="integer" />
+    </fragment>
 </navigation>

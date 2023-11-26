@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
+import com.example.hnhapp.utils.getFormattedCurrency
 import com.google.android.material.button.MaterialButton
 import java.text.NumberFormat
 import java.util.Locale
@@ -27,7 +28,7 @@ class ProductViewHolder(view:View):RecyclerView.ViewHolder(view) {
     ){
         Glide.with(image).load(product.previewImageUrl).into(image)
         title.text = product.title
-        price.text = NumberFormat.getCurrencyInstance(Locale("ru", "RU")).format(product.price.toInt())
+        price.text = getFormattedCurrency(product.price)
         department.text = product.department
         buy.setOnClickListener {
             buttonClick()
