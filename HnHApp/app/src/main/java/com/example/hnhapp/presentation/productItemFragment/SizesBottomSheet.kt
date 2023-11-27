@@ -47,6 +47,9 @@ class SizesBottomSheet(
         onClick = click
     }
 
+    /**
+     * создание листа биндингов для удоства работы с ними
+     */
     private fun initBindingList(){
         bindingList.add(binding.sizeFirst)
         bindingList.add(binding.sizeSecond)
@@ -61,10 +64,14 @@ class SizesBottomSheet(
         binding.sizeFourth.text = listSizes[3].value
     }
 
+
+    /**
+     * в заивисимости от доступности размера(позиция в списке размеров)
+     * установка цвета и слушателя нажатий
+     */
     private fun initItem(position:Int){
         context?.resources?.let {
             if (listSizes[position].isAvailable) {
-                //bindingList[position].setTextColor(it.getColor(R.color.bottom_sheet_text_color))
                 bindingList[position].isClickable = listSizes[position].isAvailable
                 bindingList[position].setOnClickListener {
                     onClick(position)

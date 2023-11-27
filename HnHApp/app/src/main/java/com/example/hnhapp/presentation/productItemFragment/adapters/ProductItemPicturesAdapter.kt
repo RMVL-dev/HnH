@@ -5,16 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hnhapp.R
 
-class ProductItemPicturesAdapter():RecyclerView.Adapter<ProductItemViewHolder>(){
+class ProductItemPicturesAdapter(
+    private var listOfPictures:MutableList<String>
+):RecyclerView.Adapter<ProductItemViewHolder>(){
 
-    private var listOfPictures = mutableListOf<String>()
-
-    fun setListPictures(list:List<String>){
-        listOfPictures = list.toMutableList()
-        while (listOfPictures.size<3){
-            listOfPictures.add("")
-        }
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemViewHolder =
         ProductItemViewHolder(
             view = LayoutInflater.from(parent.context)
@@ -27,4 +21,6 @@ class ProductItemPicturesAdapter():RecyclerView.Adapter<ProductItemViewHolder>()
     override fun onBindViewHolder(holder: ProductItemViewHolder, position: Int) {
         holder.bind(listOfPictures[position])
     }
+
+
 }

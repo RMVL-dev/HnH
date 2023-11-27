@@ -26,6 +26,9 @@ import javax.inject.Inject
 
 class ProductItemFragment : Fragment() {
 
+    /**
+     * Сделал вью модель синглтоном, знаю не очень хорошее решение, но я не придумал лучше :(
+     */
     @Inject
     lateinit var productViewModelFactory: ViewModelProvider.Factory
 
@@ -35,10 +38,13 @@ class ProductItemFragment : Fragment() {
         factoryProducer = {productViewModelFactory}
     )
 
+    /**
+     * передаю позицию нужного продукта в списке продуктов
+     */
     private val arg:ProductItemFragmentArgs by navArgs()
 
     private var _binding:FragmentProductItemBinding? = null
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -48,7 +54,6 @@ class ProductItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentProductItemBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -59,6 +64,10 @@ class ProductItemFragment : Fragment() {
 
         val product = productViewModel.getProductByPosition(arg.product)
 
+        /* тут не вижу смысла все разносить по методам, потому что
+        * просто много элементов на экране нужно иницилизировать
+        * ну и вроде метод меньше экрана поэтому читать его должно быть удобно :)
+         */
         product?.let { productItem ->
             initToolBar(title = productItem.title)
             binding.productItemTitle.text = productItem.title
@@ -67,8 +76,8 @@ class ProductItemFragment : Fragment() {
             binding.productItemDepartment.text = productItem.department
             binding.productDescription.text = productItem.description
             binding.productMaterials.text = convertListToStringWithBullets(list = productItem.details) //todo нужно спросить про spannable String
-            binding.carouselProductImages.setProduct(product = productItem)
-            //Log.d("SIZES", "${product.sizes}")
+            binding.productImages.setProduct(product = product)
+            binding.productImages.onClick()
             binding.tilProductSize.setEndIconOnClickListener{
                 customClickToEditText(product = productItem)
             }
@@ -76,14 +85,14 @@ class ProductItemFragment : Fragment() {
 
     }
 
+    /**
+     * кастомное нажатие на EditText
+     */
     private fun customClickToEditText(product:Product){
-
-       val bottomSheet =  SizesBottomSheet(listSizes = product.sizes)
-
+        val bottomSheet =  SizesBottomSheet(listSizes = product.sizes)
         bottomSheet.setOnclick {position ->
             binding.etProductSize.setText(product.sizes[position].value)
         }
-
         bottomSheet.show(requireActivity().supportFragmentManager,"tag")
     }
 
