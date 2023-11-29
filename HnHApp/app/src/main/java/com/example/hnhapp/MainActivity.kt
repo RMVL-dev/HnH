@@ -3,12 +3,14 @@ package com.example.hnhapp
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -55,24 +57,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun askNotificationPermission(){
-        if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+            == PackageManager.PERMISSION_GRANTED){
+            Log.d("TOKEN", "granted")
+        }else if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+            == PackageManager.PERMISSION_DENIED){
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
             val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
             alertDialogBuilder
                 .setTitle(getString(R.string.request_perm_title))
                 .setMessage(getString(R.string.request_perm_body))
-                .setNegativeButton(getString(R.string.request_perm_negative)) { dialog, which ->
-
-                }
-                .setPositiveButton(getString(R.string.request_perm_positive)) { dialog, which ->
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-            val dialog: AlertDialog = alertDialogBuilder.create()
-            dialog.show()
-        }else{
-            val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
-            alertDialogBuilder
-                .setTitle("ПУ пу пу")
-                .setMessage("что-то идет не так как планировал")
                 .setNegativeButton(getString(R.string.request_perm_negative)) { dialog, which ->
 
                 }
