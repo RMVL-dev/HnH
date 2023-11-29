@@ -58,10 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun askNotificationPermission(){
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-            == PackageManager.PERMISSION_GRANTED){
-            Log.d("TOKEN", "granted")
-        }else if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
             == PackageManager.PERMISSION_DENIED){
             requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
