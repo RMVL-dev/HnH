@@ -80,8 +80,11 @@ dependencies {
 
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-    implementation ("com.google.firebase:firebase-messaging-ktx")
-    implementation ("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
+    //yandex map kit
+    implementation("com.yandex.android:maps.mobile:4.4.0-lite")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
