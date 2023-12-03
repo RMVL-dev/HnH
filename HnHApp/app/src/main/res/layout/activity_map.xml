@@ -14,10 +14,55 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100"
+        >
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_enter_house"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/normal_200"
+            app:startIconDrawable="@drawable/baseline_close_24"
+            app:startIconTint="@color/smalt"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/arrow_forward_24"
+            app:endIconTint="@color/smalt"
+            >
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_enter_house"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/enter_house"
+                android:textColorHint="@color/black"
+                android:inputType="none"
+                android:enabled="false"
+                android:textColor="@color/black"
+                android:editable="false"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/normal_200"
+            android:visibility="gone"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:enabled="false"
+                android:textColor="@color/black"
+                android:editable="false"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
 

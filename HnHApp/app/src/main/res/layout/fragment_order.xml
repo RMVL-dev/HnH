@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.orderFragment.OrderFragment"
+
+    android:layout_marginStart="@dimen/normal_100"
+    android:layout_marginEnd="@dimen/normal_100">
+
+    <ImageView
+        android:id="@+id/order_item_image"
+        android:layout_height="@dimen/item_image_size"
+        android:layout_width="@dimen/item_image_size"
+
+        tools:src="@mipmap/ic_launcher"
+
+        android:layout_alignParentStart="true"
+
+        android:layout_marginTop="@dimen/normal_100"
+        android:layout_marginBottom="@dimen/normal_100"
+        />
+
+    <TextView
+        android:id="@+id/order_item_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
+
+        tools:text = "@string/preview_title_product"
+        android:layout_marginStart="@dimen/normal_100"
+
+        android:layout_alignTop="@id/order_item_image"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/order_item_image"
+        />
+
+    <TextView
+        android:id="@+id/product_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productItemDepartment"
+
+        tools:text="@string/preview_department"
+
+        android:layout_alignStart="@id/order_item_title"
+        android:layout_below="@+id/order_item_title"
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_house_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/order_item_image"
+        android:layout_marginTop="@dimen/normal_200"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/arrow_forward_24"
+        app:endIconTint="@color/smalt"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_house_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_house_tint_text"
+            android:inputType="none"
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:editable="false"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_apartments_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_house_address"
+        android:layout_marginTop="@dimen/normal_200"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_apartments_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_aparts_tint_text"
+            android:inputType="number"
+            android:textColor="@color/black"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_order_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_apartments_number"
+        android:layout_marginTop="@dimen/normal_200"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/arrow_forward_24"
+        app:endIconTint="@color/smalt"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_order_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_date_tint_text"
+            android:inputType="none"
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:editable="false"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.example.hnhapp.custom.views.ButtonWithIndicator
+        android:id="@+id/order_now_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="@dimen/normal_100"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_sign_in_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text = "buy for 27 000"
+            />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/bt_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+    </com.example.hnhapp.custom.views.ButtonWithIndicator>
+</RelativeLayout>
