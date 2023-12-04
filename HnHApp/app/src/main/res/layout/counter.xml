@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="114dp"
+    android:layout_height="28dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.RelativeLayout"
-    android:background="@color/silver_chalice">
-
-
+    android:background="@drawable/counter_shape">
+    
     <ImageView
         android:id="@+id/add_one"
         android:layout_width="32dp"
@@ -16,13 +16,15 @@
 
         android:layout_alignParentStart="true"
         />
-
-
+    
+    
     <TextView
         android:id="@+id/order_items_counter"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
 
         android:gravity="center"
         android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
@@ -44,6 +46,7 @@
 
         android:layout_alignParentEnd="true"
         />
-
-
-</merge>
+    
+    
+    
+</RelativeLayout>

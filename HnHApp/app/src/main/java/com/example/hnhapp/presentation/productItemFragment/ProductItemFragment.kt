@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.os.persistableBundleOf
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -15,10 +17,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
+import com.example.hnhapp.dataBase.converter.EntityTypeConverter
 import com.example.hnhapp.databinding.FragmentProductItemBinding
 import com.example.hnhapp.presentation.productListFragment.ProductViewModel
 import com.example.hnhapp.utils.convertListToStringWithBullets
 import com.example.hnhapp.utils.getFormattedCurrency
+import com.example.hnhapp.utils.settingSnackBar
 import dagger.android.support.AndroidSupportInjection
 import java.text.NumberFormat
 import java.util.Locale
@@ -42,6 +46,7 @@ class ProductItemFragment : Fragment() {
      * передаю позицию нужного продукта в списке продуктов
      */
     private val arg:ProductItemFragmentArgs by navArgs()
+
 
     private var _binding:FragmentProductItemBinding? = null
     private val binding get() = _binding!!
@@ -82,7 +87,22 @@ class ProductItemFragment : Fragment() {
                 customClickToEditText(product = productItem)
             }
         }
-
+        binding.btProductBuyNow.setOnClickListener {
+            if (product != null &&
+                binding.etProductSize.text?.isNotEmpty() == true
+                ) {
+                val jsonProduct = productViewModel.getProductToOrderJson(product = product)
+                findNavController().navigate(
+                    ProductItemFragmentDirections.actionProductItemFragmentToOrderFragment(
+                        product = jsonProduct
+                    )
+                )
+            }else if(binding.etProductSize.text?.isEmpty() == true){
+                view.settingSnackBar("Не выбран размер").show()
+            }else{
+                view.settingSnackBar("Не выбран товар").show()
+            }
+        }
     }
 
     /**
@@ -91,7 +111,9 @@ class ProductItemFragment : Fragment() {
     private fun customClickToEditText(product:Product){
         val bottomSheet =  SizesBottomSheet(listSizes = product.sizes)
         bottomSheet.setOnclick {position ->
-            binding.etProductSize.setText(product.sizes[position].value)
+            val size = product.sizes[position]
+            binding.etProductSize.setText(size.value)
+            productViewModel.setSize(size)
         }
         bottomSheet.show(requireActivity().supportFragmentManager,"tag")
     }

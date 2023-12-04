@@ -8,7 +8,7 @@
     android:maxHeight="120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:backgroundTint="@color/preview_card_click"
+    android:backgroundTint="@color/color_card_click"
     >
 
     <RelativeLayout

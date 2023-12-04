@@ -1,18 +1,17 @@
 package com.example.hnhapp.presentation.productListFragment
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hnhapp.data.productResponse.Product
+import com.example.hnhapp.data.productResponse.Size
 import com.example.hnhapp.data.responseModel.ResponseState
+import com.example.hnhapp.dataBase.converter.EntityTypeConverter
 import com.example.hnhapp.dataBase.testEntitys.MainEntity
 import com.example.hnhapp.domain.productUseCase.ProductUseCase
 import com.example.hnhapp.utils.getError
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.cancellable
-import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,6 +23,9 @@ class ProductViewModel @Inject constructor(
 
     private val _productLiveData = MutableLiveData<ResponseState<List<Product>>>()
     val productData: LiveData<ResponseState<List<Product>>> = _productLiveData
+
+    private val _size = MutableLiveData<Size>()
+    val size: LiveData<Size> = _size
 
     private fun getProductList(){
         viewModelScope.launch {
@@ -79,5 +81,17 @@ class ProductViewModel @Inject constructor(
                 (productData.value as ResponseState.Success).data[position]
         else
             null
+
+    fun getProductToOrderJson(product: Product):String?{
+        var productToJson:Product = product
+        size.value?.let {
+            productToJson = product.copy(sizes = listOf(it))
+        }
+        return  EntityTypeConverter().productEntityToJson(product = productToJson)
+    }
+
+    fun setSize(size: Size){
+        _size.value = size
+    }
 
 }
