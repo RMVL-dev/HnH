@@ -1,9 +1,11 @@
 package com.example.hnhapp.presentation.signinfragment
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+
 import com.example.hnhapp.data.requestModel.LoginResponse
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.domain.usecase.LoginUseCase
@@ -18,7 +20,6 @@ class SignInViewModel @Inject constructor(
 
     private val _loginLiveData = MutableLiveData<ResponseState<LoginResponse>>()
     val loginLiveData:LiveData<ResponseState<LoginResponse>> = _loginLiveData
-
 
     fun login(login:String, password:String){
         viewModelScope.launch {
@@ -38,6 +39,5 @@ class SignInViewModel @Inject constructor(
             }
         }
     }
-
 
 }
