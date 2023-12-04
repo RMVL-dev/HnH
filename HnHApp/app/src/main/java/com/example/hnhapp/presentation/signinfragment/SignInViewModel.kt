@@ -1,4 +1,4 @@
-package com.example.hnhapp.signinfragment
+package com.example.hnhapp.presentation.signinfragment
 
 import android.util.Log
 import androidx.lifecycle.LiveData

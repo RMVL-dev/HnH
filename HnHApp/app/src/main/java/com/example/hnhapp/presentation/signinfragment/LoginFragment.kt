@@ -1,4 +1,4 @@
-package com.example.hnhapp.signinfragment
+package com.example.hnhapp.presentation.signinfragment
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentLoginBinding
@@ -20,7 +21,7 @@ class LoginFragment : Fragment() {
     @Inject
     lateinit var loginViewModelFactory: ViewModelProvider.Factory
 
-    private val signInViewModel:SignInViewModel by createViewModelLazy(
+    private val signInViewModel: SignInViewModel by createViewModelLazy(
         SignInViewModel::class,
         {this.viewModelStore},
         factoryProducer = {loginViewModelFactory}
@@ -86,8 +87,11 @@ class LoginFragment : Fragment() {
                     }
                     binding.vgBtSignInAction.otherStates()
                 }
-                else -> {
+                is ResponseState.Success -> {
                     binding.vgBtSignInAction.otherStates()
+                    findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToProductListFragment()
+                    )
                 }
             }
         }

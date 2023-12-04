@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/preview_card_click"
+    >
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+        android:layout_alignParentStart="true"
+
+        android:layout_marginStart="@dimen/normal_100"
+
+        android:layout_marginTop="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100"
+        android:layout_marginBottom="@dimen/normal_100"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/product_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill_horizontal"
+        android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
+
+        tools:text="@string/preview_title_product"
+
+        android:layout_alignTop="@id/product_image"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/product_image"
+        />
+
+    <TextView
+        android:id="@+id/product_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productItemDepartment"
+
+        tools:text="@string/preview_department"
+
+        android:layout_alignStart="@id/product_title"
+        android:layout_below="@+id/product_title"
+
+        />
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productPrice"
+
+        tools:text="@string/preview_price"
+
+        android:layout_alignBottom="@id/product_image"
+        android:layout_alignStart="@id/product_title"
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/product_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent"
+        android:textColor="@color/button_colors"
+        android:textStyle="bold"
+        app:icon="@drawable/vectorbasket"
+        app:iconTint="@color/button_colors"
+        android:text="@string/bt_buy"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignBaseline="@+id/product_price"
+        />
+
+</RelativeLayout>

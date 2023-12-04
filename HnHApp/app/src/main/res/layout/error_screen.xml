@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    android:id="@+id/error_screen"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.RelativeLayout"
+    >
+
+    <ImageView
+        android:id="@+id/error_image"
+        android:src="@drawable/error_image"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/error_header"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.errorHeader"
+        tools:text="@string/error_header"
+        android:layout_below="@+id/error_image"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.errorMessage"
+
+        tools:text="@string/preview_error_message"
+        android:layout_below="@+id/error_header"
+        android:layout_centerHorizontal="true"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/error_update_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/button_error_update"
+        android:layout_below="@+id/error_message"
+        android:layout_centerHorizontal="true"
+        />
+
+
+</merge>
