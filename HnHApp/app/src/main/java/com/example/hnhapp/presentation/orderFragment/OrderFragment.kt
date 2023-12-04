@@ -11,7 +11,6 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.hnhapp.R
 import com.example.hnhapp.databinding.FragmentOrderBinding
-import com.example.hnhapp.mapActivity.MapActivity
 import com.example.hnhapp.presentation.contracts.MapActivityContract
 import com.example.hnhapp.utils.getFormattedCurrency
 import dagger.android.support.AndroidSupportInjection

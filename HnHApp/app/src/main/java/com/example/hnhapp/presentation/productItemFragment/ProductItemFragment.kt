@@ -2,30 +2,25 @@ package com.example.hnhapp.presentation.productItemFragment
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.os.persistableBundleOf
+import androidx.core.view.doOnAttach
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
-import com.example.hnhapp.dataBase.converter.EntityTypeConverter
 import com.example.hnhapp.databinding.FragmentProductItemBinding
+import com.example.hnhapp.presentation.productItemFragment.bottomSheet.SizesBottomSheet
 import com.example.hnhapp.presentation.productListFragment.ProductViewModel
 import com.example.hnhapp.utils.convertListToStringWithBullets
 import com.example.hnhapp.utils.getFormattedCurrency
 import com.example.hnhapp.utils.settingSnackBar
 import dagger.android.support.AndroidSupportInjection
-import java.text.NumberFormat
-import java.util.Locale
 import javax.inject.Inject
 
 class ProductItemFragment : Fragment() {
@@ -47,7 +42,6 @@ class ProductItemFragment : Fragment() {
      */
     private val arg:ProductItemFragmentArgs by navArgs()
 
-
     private var _binding:FragmentProductItemBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,11 +49,15 @@ class ProductItemFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductItemBinding.inflate(inflater, container, false)
+        binding.etProductSize.doOnAttach {
+            it.requestFocus()
+        }
         return binding.root
     }
 
@@ -69,10 +67,6 @@ class ProductItemFragment : Fragment() {
 
         val product = productViewModel.getProductByPosition(arg.product)
 
-        /* тут не вижу смысла все разносить по методам, потому что
-        * просто много элементов на экране нужно иницилизировать
-        * ну и вроде метод меньше экрана поэтому читать его должно быть удобно :)
-         */
         product?.let { productItem ->
             initToolBar(title = productItem.title)
             binding.productItemTitle.text = productItem.title
@@ -83,14 +77,18 @@ class ProductItemFragment : Fragment() {
             binding.productMaterials.text = convertListToStringWithBullets(list = productItem.details) //todo нужно спросить про spannable String
             binding.productImages.setProduct(product = product)
             binding.productImages.onClick()
+            binding.etProductSize.setOnClickListener {
+                customClickToEditText(product = productItem)
+            }
             binding.tilProductSize.setEndIconOnClickListener{
                 customClickToEditText(product = productItem)
             }
         }
+
         binding.btProductBuyNow.setOnClickListener {
             if (product != null &&
                 binding.etProductSize.text?.isNotEmpty() == true
-                ) {
+            ) {
                 val jsonProduct = productViewModel.getProductToOrderJson(product = product)
                 findNavController().navigate(
                     ProductItemFragmentDirections.actionProductItemFragmentToOrderFragment(
@@ -117,6 +115,7 @@ class ProductItemFragment : Fragment() {
         }
         bottomSheet.show(requireActivity().supportFragmentManager,"tag")
     }
+
 
     private fun initToolBar(title:String){
         binding.productItemToolbar

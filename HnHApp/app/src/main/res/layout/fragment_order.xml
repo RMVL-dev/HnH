@@ -51,7 +51,7 @@
 
         />
     
-    <com.example.hnhapp.custom.views.OrderCounter
+    <com.example.hnhapp.presentation.views.OrderCounter
         android:id="@+id/counter"
         android:layout_width="114dp"
         android:layout_height="28dp"
@@ -124,7 +124,7 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.example.hnhapp.custom.views.ButtonWithIndicator
+    <com.example.hnhapp.presentation.views.ButtonWithIndicator
         android:id="@+id/order_now_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,5 +148,5 @@
             android:layout_centerVertical="true"
             android:visibility="gone"
             />
-    </com.example.hnhapp.custom.views.ButtonWithIndicator>
+    </com.example.hnhapp.presentation.views.ButtonWithIndicator>
 </RelativeLayout>
