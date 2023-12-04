@@ -24,12 +24,15 @@
     <string name="best_seller">Хит сезона</string>
     <string name="buy_now">Купить сейчас</string>
     <string name="size">Размер</string>
-    <string name="request_perm_title">Нет времени объяснять нажимай "ДА"</string>
-    <string name="request_perm_body">Уведомления нужны?)</string>
+    <string name="request_perm_title">Отправка уведомлений</string>
+    <string name="request_perm_body">Вы сможете получать уведомления</string>
     <string name="request_perm_negative">Нет</string>
-    <string name="request_perm_positive">Да, очень</string>
+    <string name="request_perm_positive">Да</string>
+    <string name="request_location_perm_title">Данные о вашей локации</string>
+    <string name="request_location_perm_body">Мы используем ваши данные только для отображения на карте</string>
     <string name="enter_house">Выбор дома</string>
     <string name="order_house_tint_text">Дом</string>
     <string name="order_aparts_tint_text">Квартира</string>
     <string name="order_date_tint_text">Дата доставки</string>
+    <string name="order_toolbar_title">Оформление заказа</string>
 </resources>

@@ -5,10 +5,29 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.orderFragment.OrderFragment"
+    >
 
-    android:layout_marginStart="@dimen/normal_100"
-    android:layout_marginEnd="@dimen/normal_100">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/order_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        app:navigationIconTint="@color/white"
+        app:navigationIcon="@drawable/outline_arrow_back_24"
+        app:titleTextColor="@color/white"
+        android:background="@color/smalt"
+
+        android:layout_alignParentTop="true"
+        />
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100"
+        android:layout_below="@+id/order_toolbar"
+        >
     <ImageView
         android:id="@+id/order_item_image"
         android:layout_height="@dimen/item_image_size"
@@ -77,8 +96,9 @@
             android:layout_height="match_parent"
             android:hint="@string/order_house_tint_text"
             android:inputType="none"
-            android:enabled="false"
             android:textColor="@color/black"
+            android:clickable="true"
+            android:focusable="true"
             android:editable="false"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,6 +117,7 @@
             android:layout_height="match_parent"
             android:hint="@string/order_aparts_tint_text"
             android:inputType="number"
+            android:imeOptions="actionDone"
             android:textColor="@color/black"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -118,8 +139,10 @@
             android:layout_height="match_parent"
             android:hint="@string/order_date_tint_text"
             android:inputType="none"
-            android:enabled="false"
             android:textColor="@color/black"
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
             android:editable="false"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -149,4 +172,5 @@
             android:visibility="gone"
             />
     </com.example.hnhapp.presentation.views.ButtonWithIndicator>
+    </RelativeLayout>
 </RelativeLayout>
