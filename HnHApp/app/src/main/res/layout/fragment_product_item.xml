@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_100">
 
-            <com.example.hnhapp.custom.views.ProductPicture
+            <com.example.hnhapp.presentation.views.ProductPicture
                 android:id="@+id/product_images"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,10 +102,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/size"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:inputType="none"
-                    android:enabled="false"
-                    android:textColor="@color/black"
                     android:editable="false"
+                    android:textColor="@color/black"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

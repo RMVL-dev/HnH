@@ -11,4 +11,5 @@
     <color name="test_color">#FFBF40BF</color>
     <color name="transparent">#00000000</color>
     <color name="best_seller">#FF2E7D32</color>
+    <color name="place_holder_color">#FFFFFFFF</color>
 </resources>
