@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.hnhapp.R
 import com.example.hnhapp.databinding.FragmentOrderBinding
 import com.example.hnhapp.mapActivity.MapActivity
+import com.example.hnhapp.presentation.contracts.MapActivityContract
 import com.example.hnhapp.utils.getFormattedCurrency
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -61,9 +62,11 @@ class OrderFragment : Fragment() {
         orderViewModel.counterOrderItems.observe(viewLifecycleOwner){counter ->
             binding.counter.setCountedValue(counter = counter)
         }
-
+        val activityLauncher = registerForActivityResult(MapActivityContract()){result ->
+            binding.etHouseAddress.setText(result)
+        }
         binding.tilHouseAddress.setEndIconOnClickListener {
-            startActivity(MapActivity.createIntent(requireActivity()))
+            activityLauncher.launch("What is address?")
         }
 
         binding.counter.setIncrease { orderViewModel.increaseOrderCounter() }

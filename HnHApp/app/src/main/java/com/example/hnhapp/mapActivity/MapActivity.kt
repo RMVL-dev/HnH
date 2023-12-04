@@ -14,13 +14,16 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.hnhapp.MainActivity
 import com.example.hnhapp.R
 import com.example.hnhapp.databinding.ActivityMapBinding
+import com.example.hnhapp.presentation.contracts.MapActivityContract
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.yandex.mapkit.Animation
+import com.yandex.mapkit.GeoObject
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
@@ -76,6 +79,7 @@ class MapActivity : AppCompatActivity() {
         }
 
         binding.map.mapWindow.map.addInputListener(inputListener)
+        var currentGeoObject:String? = null
         binding.map.mapWindow.map.addTapListener {
             val selectionMetadata: GeoObjectSelectionMetadata = it
                 .geoObject
@@ -88,8 +92,13 @@ class MapActivity : AppCompatActivity() {
             }else{
                 binding.etAddress.setText(it.geoObject.name)
                 binding.tilAddress.visibility = View.VISIBLE
+                currentGeoObject = it.geoObject.name
             }
             true
+        }
+
+        binding.tilEnterHouse.setEndIconOnClickListener {
+            startActivity(MainActivity.createStartIntent(this).putExtra(MapActivityContract.KEY, currentGeoObject))
         }
     }
 
