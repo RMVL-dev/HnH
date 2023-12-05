@@ -1,13 +1,11 @@
 package com.example.hnhapp.utils
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.BulletSpan
 import androidx.annotation.RequiresApi
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 fun getFormattedCurrency(currency:String): String? =
@@ -30,7 +28,12 @@ fun convertListToStringWithBullets(list: List<String>):String? =
             else
                 "\n\u2022 $item"
         }
-        //val spannableString = SpannableString(mainString)
-        //spannableString.setSpan(BulletSpan(40, Color.GREEN,40),30,52,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         mainString
     }
+fun formatDate(calendar: Calendar, pattern:String):String =
+    SimpleDateFormat(pattern).format(calendar.time)
+
+fun formatDate(date: String, newPattern: String, oldPattern: String): String {
+    val oldFormatDate = SimpleDateFormat(oldPattern).parse(date) as Date
+    return SimpleDateFormat(newPattern).format(oldFormatDate)
+}

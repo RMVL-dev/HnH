@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.databinding.FragmentProductItemBinding
 import com.example.hnhapp.presentation.productItemFragment.bottomSheet.SizesBottomSheet
@@ -96,9 +97,9 @@ class ProductItemFragment : Fragment() {
                     )
                 )
             }else if(binding.etProductSize.text?.isEmpty() == true){
-                view.settingSnackBar("Не выбран размер").show()
+                view.settingSnackBar("Не выбран размер", R.color.error_sign_in).show()
             }else{
-                view.settingSnackBar("Не выбран товар").show()
+                view.settingSnackBar("Не выбран товар", R.color.error_sign_in).show()
             }
         }
     }

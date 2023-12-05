@@ -82,7 +82,8 @@ class LoginFragment : Fragment() {
                 is ResponseState.Error -> {
                     value.message?.let {
                         view.settingSnackBar(
-                            message = it
+                            message = it,
+                            colorId = R.color.error_sign_in
                         ).show()
                     }
                     binding.vgBtSignInAction.otherStates()
