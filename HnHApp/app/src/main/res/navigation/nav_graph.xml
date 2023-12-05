@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_productListFragment_to_productItemFragment"
             app:destination="@id/productItemFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/productItemFragment"

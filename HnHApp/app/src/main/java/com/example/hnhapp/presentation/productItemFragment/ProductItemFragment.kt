@@ -113,6 +113,7 @@ class ProductItemFragment : Fragment() {
             val size = product.sizes[position]
             binding.etProductSize.setText(size.value)
             productViewModel.setSize(size)
+            bottomSheet.dismiss()
         }
         bottomSheet.show(requireActivity().supportFragmentManager,"tag")
     }
