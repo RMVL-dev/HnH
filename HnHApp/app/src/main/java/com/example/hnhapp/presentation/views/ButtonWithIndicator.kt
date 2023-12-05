@@ -60,8 +60,12 @@ class ButtonWithIndicator @JvmOverloads constructor(
         (secondChild as CircularProgressIndicator).show()
     }
 
-    fun otherStates(){
-        (firstChild as MaterialButton).text = context.getText(R.string.sign_in_action)
+    fun otherStates(buttonTextId:Int){
+        (firstChild as MaterialButton).text = context.getText(buttonTextId)
+        (secondChild as CircularProgressIndicator).hide()
+    }
+    fun otherStates(buttonText:String){
+        (firstChild as MaterialButton).text = buttonText
         (secondChild as CircularProgressIndicator).hide()
     }
 

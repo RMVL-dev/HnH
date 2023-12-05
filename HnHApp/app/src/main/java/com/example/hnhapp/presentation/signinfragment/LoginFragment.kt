@@ -86,10 +86,10 @@ class LoginFragment : Fragment() {
                             colorId = R.color.error_sign_in
                         ).show()
                     }
-                    binding.vgBtSignInAction.otherStates()
+                    binding.vgBtSignInAction.otherStates(buttonTextId = R.string.sign_in)
                 }
                 is ResponseState.Success -> {
-                    binding.vgBtSignInAction.otherStates()
+                    binding.vgBtSignInAction.otherStates(buttonTextId = R.string.sign_in)
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToProductListFragment()
                     )

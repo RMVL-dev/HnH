@@ -90,7 +90,7 @@ class OrderFragment : Fragment() {
                             colorId = R.color.error_sign_in
                         )?.show()
                     }
-                    binding.orderNowButton.otherStates()
+                    binding.orderNowButton.otherStates(buttonText ="Попробовать еще раз")
                 }
                 is ResponseState.Loading -> {
                     binding.orderNowButton.loading()
@@ -102,7 +102,7 @@ class OrderFragment : Fragment() {
                             colorId = R.color.smalt
                         )?.show()
                     }
-                    binding.orderNowButton.otherStates()
+                    binding.orderNowButton.otherStates("Успешный заказ")
                 }
             }
         }
