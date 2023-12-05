@@ -82,7 +82,7 @@ class OrderViewModel @Inject constructor(
         return OrderRequest(
             house = house,
             apartment = apartment,
-            dateDelivery = formatDate(calendar = calendar, "yyyy-MM-dd'T'HH:mm:ss.SSSZ"),
+            dateDelivery = formatDate(calendar = calendar, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
             products = listOf(orderProduct)
         )
     }

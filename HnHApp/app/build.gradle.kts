@@ -12,6 +12,9 @@ android {
     compileSdk = 34
 
     defaultConfig {
+
+        buildConfigField("String", "MAP_API_KEY", "\"37ac6cb9-71dc-4774-b9f5-3954dfb9665e\"")
+
         applicationId = "com.example.hnhapp"
         minSdk = 24
         targetSdk = 34

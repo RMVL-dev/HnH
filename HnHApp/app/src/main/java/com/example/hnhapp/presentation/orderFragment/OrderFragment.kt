@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.example.hnhapp.R
+import com.example.hnhapp.data.order.response.OrderResponse
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentOrderBinding
 import com.example.hnhapp.presentation.contracts.MapActivityContract
@@ -84,28 +85,46 @@ class OrderFragment : Fragment() {
         orderViewModel.orderResponseState.observe(viewLifecycleOwner){responseState ->
             when(responseState){
                 is ResponseState.Error -> {
-                    responseState.message?.let {
-                        view?.settingSnackBar(
-                            message = it,
-                            colorId = R.color.error_sign_in
-                        )?.show()
-                    }
-                    binding.orderNowButton.otherStates(buttonText ="Попробовать еще раз")
+                    errorState(responseState.message)
                 }
                 is ResponseState.Loading -> {
                     binding.orderNowButton.loading()
                 }
                 is ResponseState.Success -> {
-                    responseState.data?.let {order->
-                        view?.settingSnackBar(
-                            message = "Заказ №${order.number} от ${order.createdDelivery} был успешно оформлен",
-                            colorId = R.color.smalt
-                        )?.show()
-                    }
-                    binding.orderNowButton.otherStates("Успешный заказ")
+                    successState(orderResponse = responseState.data)
                 }
             }
         }
+    }
+
+    private fun successState(orderResponse: OrderResponse?){
+        orderResponse?.let {order ->
+            val date = formatDate(
+                date = order.createdDelivery,
+                newPattern = resources.getString(R.string.snackbar_pattern),
+                oldPattern = resources.getString(R.string.order_pattern)
+            )
+            val message = String.format(resources.getString(R.string.success_order),order.number, date)
+            view?.settingSnackBar(
+                message = message,
+                colorId = R.color.smalt
+            )?.show()
+        }
+        binding.orderNowButton.otherStates(
+            buttonText = resources.getString(R.string.success_order_button_text)
+        )
+    }
+
+    private fun errorState(message:String?){
+        message?.let {
+            view?.settingSnackBar(
+                message = it,
+                colorId = R.color.error_sign_in
+            )?.show()
+        }
+        binding.orderNowButton.otherStates(
+            buttonText = resources.getString(R.string.try_again)
+        )
     }
 
     /**
@@ -113,10 +132,21 @@ class OrderFragment : Fragment() {
      */
     private fun setOnOrderClickListener(){
         binding.btBuyNow.setOnClickListener {
-            orderViewModel.checkToOrder(
-                house = binding.etHouseAddress.text.toString(),
-                apartment = binding.etApartmentsNumber.text.toString()
-            )
+
+            if (binding.etHouseAddress.text.isNullOrEmpty() ||
+                binding.etApartmentsNumber.text.isNullOrEmpty() ||
+                binding.etOrderDate.text.isNullOrEmpty()
+                ){
+                view?.settingSnackBar(
+                    message = "Не все поля заполнены",
+                    colorId = R.color.error_sign_in
+                )?.show()
+            }else{
+                orderViewModel.checkToOrder(
+                    house = binding.etHouseAddress.text.toString(),
+                    apartment = binding.etApartmentsNumber.text.toString()
+                )
+            }
         }
     }
 

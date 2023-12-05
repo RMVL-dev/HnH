@@ -35,4 +35,9 @@
     <string name="order_aparts_tint_text">Квартира</string>
     <string name="order_date_tint_text">Дата доставки</string>
     <string name="order_toolbar_title">Оформление заказа</string>
+    <string name="success_order">Заказ №%1$d от %2$s был успешно оформлен</string>
+    <string name="try_again">Попробовать еще раз</string>
+    <string name="success_order_button_text">Успешный заказ</string>
+    <string name="order_pattern">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
+    <string name="snackbar_pattern">dd.MM.YY</string>
 </resources>
