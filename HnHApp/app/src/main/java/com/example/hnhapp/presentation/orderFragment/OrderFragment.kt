@@ -150,11 +150,10 @@ class OrderFragment : Fragment() {
 
     /**
      * Обновление поля ввода
-     * TODO что-то не так с форматированием, нужно спросить
      */
     private fun updateDate(calendar: Calendar){
         val dateFormatPattern = "dd MMMM"
-        val dateFormat = SimpleDateFormat(dateFormatPattern, Locale.ROOT)
+        val dateFormat = SimpleDateFormat(dateFormatPattern)
         binding.etOrderDate.setText(dateFormat.format(calendar.time))
     }
 }

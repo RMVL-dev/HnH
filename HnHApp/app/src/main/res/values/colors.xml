@@ -12,4 +12,5 @@
     <color name="transparent">#00000000</color>
     <color name="best_seller">#FF2E7D32</color>
     <color name="place_holder_color">#FFFFFFFF</color>
+    <color name="counter_button_color">#FFF1F1F1</color>
 </resources>
