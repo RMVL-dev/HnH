@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="circleImage">
+        <item name="cornerSize">50%</item>
+    </style>
+
+
     <style name="DialogTheme" parent="android:Theme.Material.Light.Dialog">
         <item name="android:colorAccent">@color/smalt</item>
         <item name="android:buttonBarButtonStyle">@style/dialog_button</item>

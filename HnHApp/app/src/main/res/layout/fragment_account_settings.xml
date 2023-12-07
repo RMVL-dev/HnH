@@ -32,14 +32,16 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             >
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@color/silver_chalice"
+                app:shapeAppearance="@style/circleImage"
 
-                android:background="@drawable/image_profile_shape"
                 />
             <ImageView
                 android:id="@+id/ic_camera_placeholder"
