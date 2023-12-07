@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_productListFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_accountSettingsFragment"
+            app:destination="@id/accountSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/productItemFragment"
@@ -48,4 +51,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/accountSettingsFragment"
+        android:name="com.example.hnhapp.presentation.accountSettings.AccountSettingsFragment"
+        android:label="fragment_account_settings"
+        tools:layout="@layout/fragment_account_settings" />
 </navigation>

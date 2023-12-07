@@ -2,12 +2,10 @@ package com.example.hnhapp.presentation.productListFragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -17,7 +15,6 @@ import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentProductListBinding
-import com.example.hnhapp.presentation.productItemFragment.ProductItemFragmentDirections
 import com.example.hnhapp.presentation.productItemFragment.bottomSheet.SizesBottomSheet
 import com.example.hnhapp.presentation.productListFragment.adapter.ProductAdapter
 import dagger.android.support.AndroidSupportInjection
@@ -53,6 +50,7 @@ class ProductListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         productViewModel.getAllItems()
+        setActionToAccountButton()
         productViewModel.productData.observe(viewLifecycleOwner){value ->
             when(value){
                 is ResponseState.Error -> {
@@ -85,6 +83,16 @@ class ProductListFragment : Fragment() {
         }
     }
 
+    /**
+     * Установка навигации в настройки аккаунта
+     */
+    private fun setActionToAccountButton(){
+        binding.accountButton.setOnClickListener {
+            findNavController().navigate(R.id.action_productListFragment_to_accountSettingsFragment)
+        }
+    }
+
+
     private fun errorOrEmptyState(){
         binding.rvProducts.visibility = View.GONE
         binding.progressCircular.visibility = View.GONE
@@ -97,7 +105,6 @@ class ProductListFragment : Fragment() {
         adapter.setOnClick { position ->
             val product = data[position]
             btBuyClickAction(product = product)
-            //findNavController().navigate(ProductListFragmentDirections.actionProductListFragmentToProductItemFragment(position))
         }
         adapter.onCardClick {position ->
             findNavController().navigate(ProductListFragmentDirections.actionProductListFragmentToProductItemFragment(position))

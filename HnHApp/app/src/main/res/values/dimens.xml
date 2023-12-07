@@ -19,4 +19,5 @@
     <dimen name="best_seller_padding_vertical">5dp</dimen>
     <dimen name="small_pictures_size">40dp</dimen>
     <dimen name="item_image_size">120dp</dimen>
+    <dimen name="setting_image_size">90dp</dimen>
 </resources>
