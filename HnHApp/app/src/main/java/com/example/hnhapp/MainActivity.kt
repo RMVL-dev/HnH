@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()){}
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -58,9 +58,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun askNotificationPermission(){
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-            == PackageManager.PERMISSION_DENIED) {
-            if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
+        ) {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)||
+                shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)
+                ) {
                 val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
                 alertDialogBuilder
                     .setTitle(getString(R.string.request_perm_title))
@@ -69,12 +72,22 @@ class MainActivity : AppCompatActivity() {
 
                     }
                     .setPositiveButton(getString(R.string.request_perm_positive)) { dialog, which ->
-                        requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                        requestPermissionLauncher.launch(
+                            arrayOf(
+                                Manifest.permission.POST_NOTIFICATIONS,
+                                Manifest.permission.CAMERA
+                            )
+                        )
                     }
                 val dialog: AlertDialog = alertDialogBuilder.create()
                 dialog.show()
             }
-            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            requestPermissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.POST_NOTIFICATIONS,
+                    Manifest.permission.CAMERA
+                )
+            )
         }
     }
 

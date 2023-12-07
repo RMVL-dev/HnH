@@ -49,6 +49,7 @@
                 android:layout_gravity="center"
                 />
         </FrameLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_settings_firstname"
             android:layout_width="match_parent"
@@ -63,8 +64,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"/>
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_settings_lastname"
             android:layout_width="match_parent"
@@ -79,9 +81,10 @@
                 android:id="@+id/et_settings_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"/>
+                android:imeOptions="actionDone"
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_settings_occupation"
             android:layout_width="match_parent"
@@ -96,8 +99,12 @@
                 android:id="@+id/et_settings_occupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:inputType="none"
+                android:editable="false"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"/>
+                />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_settings_other_occupation"
@@ -113,8 +120,8 @@
                 android:id="@+id/et_settings_other_occupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"/>
+                android:imeOptions="actionDone"
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.example.hnhapp.presentation.views.ButtonWithIndicator
