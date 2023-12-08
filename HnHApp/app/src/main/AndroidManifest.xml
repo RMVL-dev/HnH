@@ -47,6 +47,15 @@
             </intent-filter>
         </service>
 
+        <service android:name=".services.ServiceWithBound"
+            android:exported="false">
+        </service>
+
+        <service android:name=".services.ServiceWithLaunch"
+            android:exported="false"/>
+
+        <service android:name=".services.ServiceWithBoth"
+            android:exported="false"/>
         <provider
             android:authorities="${applicationId}.provider"
             android:name="androidx.core.content.FileProvider"
