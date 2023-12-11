@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
 
                 android:textAppearance="@style/TextAppearanceHnH.productPrice"
-                android:textSize="24sp"
+                android:textSize="@dimen/normal_24sp"
 
                 android:layout_below="@+id/product_images"
                 tools:text = "@string/preview_price"

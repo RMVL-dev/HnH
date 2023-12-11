@@ -14,6 +14,7 @@ class LoginUseCase @Inject constructor(
     suspend fun execute(login:String, password: String):LoginResponse{
         val loginData = repository.login(login = login, password = password)
         sharedPreferences.userToken = loginData.accessToken
+        //Log.d("TOKEN_PLS", loginData.accessToken)
         return loginData
     }
 
