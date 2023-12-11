@@ -18,54 +18,78 @@
         android:layout_marginStart="@dimen/normal_100"
         android:layout_marginEnd="@dimen/normal_100"
         >
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_enter_house"
+        <RelativeLayout
+            android:id="@+id/enter_house"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/normal_200"
-            app:startIconDrawable="@drawable/baseline_close_24"
-            app:startIconTint="@color/smalt"
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/arrow_forward_24"
-            app:endIconTint="@color/smalt"
+            android:background="@drawable/map_fields_shape"
+            android:clickable="true"
+            android:focusable="true"
             >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_enter_house"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="@string/enter_house"
-                android:textColorHint="@color/black"
-                android:inputType="none"
-                android:textColor="@color/black"
+                android:src="@drawable/baseline_close_24"
+
+                android:layout_marginStart="@dimen/normal_100"
+
                 android:clickable="true"
                 android:focusable="true"
-                android:editable="false"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_address"
+                android:layout_alignParentStart="true"
+                />
+
+            <TextView
+                android:id="@+id/text_enter_house"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/enter_house"
+
+                android:layout_marginStart="@dimen/normal_200"
+                android:layout_marginEnd="@dimen/normal_100"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearanceHnH.MapMainText"
+
+                android:layout_toEndOf="@+id/close_button"
+                android:layout_toStartOf="@+id/text_enter_choice"
+                />
+
+            <TextView
+                android:id="@+id/text_enter_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/enter_choice"
+
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/normal_100"
+                android:clickable="true"
+                android:focusable="true"
+                android:textAppearance="@style/TextAppearanceHnH.MapChoiceText"
+
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/current_house"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
+            tools:text="@string/enter_house"
+            android:textColor="@color/black"
+
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/normal_200"
+
+            android:gravity="center"
+            android:background="@drawable/map_fields_shape"
             android:visibility="gone"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_address"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="none"
-                android:hint="@string/order_house_tint_text"
-                android:textColor="@color/black"
-                android:clickable="true"
-                android:focusable="true"
-                android:editable="false"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+
+            android:clickable="true"
+            android:focusable="true"
+            />
 
     </RelativeLayout>
 

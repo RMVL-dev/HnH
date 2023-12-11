@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextAppearanceHnH.MapMainText">
+        <item name="android:textSize">@dimen/normal_20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextAppearanceHnH.MapChoiceText">
+        <item name="android:textSize">@dimen/normal_12sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/button_colors</item>
+    </style>
+
     <style name="toolbarArrow" parent="Theme.HnHApp">
         <item name="android:textColorSecondary">@color/white</item>
     </style>

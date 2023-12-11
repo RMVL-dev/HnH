@@ -31,6 +31,7 @@
     <string name="request_location_perm_title">Данные о вашей локации</string>
     <string name="request_location_perm_body">Мы используем ваши данные только для отображения на карте</string>
     <string name="enter_house">Выбор дома</string>
+    <string name="enter_choice">Выбрать</string>
     <string name="order_house_tint_text">Дом</string>
     <string name="order_aparts_tint_text">Квартира</string>
     <string name="order_date_tint_text">Дата доставки</string>
