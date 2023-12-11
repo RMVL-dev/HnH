@@ -1,18 +1,13 @@
 package com.example.hnhapp.utils
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.BulletSpan
 import androidx.annotation.RequiresApi
 import java.text.NumberFormat
 import java.util.Locale
 
-fun getFormattedCurrency(currency:String): String? =
+fun getFormattedCurrency(currency:Int): String? =
     try {
-        NumberFormat.getCurrencyInstance(Locale("ru", "RU")).format(currency.toInt())
+        "${NumberFormat.getInstance(Locale(" ru ", " RU ")).format(currency)} \u20BD"
     }catch (e:Exception){
         null
     }

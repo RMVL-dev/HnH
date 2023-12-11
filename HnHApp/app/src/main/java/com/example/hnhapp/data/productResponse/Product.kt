@@ -10,7 +10,7 @@ data class Product(
     @SerializedName("department")
     val department: String,
     @SerializedName("price")
-    val price: String,
+    val price: Int,
     @SerializedName("badge")
     val badge: List<Badge>,
     @SerializedName("preview")

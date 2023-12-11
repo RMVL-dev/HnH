@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:clickable="true"
     android:focusable="true"
-    android:background="@color/preview_card_click"
+    android:background="?attr/selectableItemBackground"
     >
 
     <ImageView
@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="fill_horizontal"
         android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
+        android:layout_marginEnd="@dimen/normal_100"
 
         tools:text="@string/preview_title_product"
 
