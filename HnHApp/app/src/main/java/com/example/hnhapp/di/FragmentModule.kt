@@ -1,5 +1,6 @@
 package com.example.hnhapp.di
 
+import com.example.hnhapp.presentation.productItemFragment.ProductItemFragment
 import com.example.hnhapp.presentation.productListFragment.ProductListFragment
 import com.example.hnhapp.presentation.signinfragment.LoginFragment
 import dagger.Module
@@ -12,4 +13,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun productFragment(): ProductListFragment
+
+    @ContributesAndroidInjector
+    abstract fun productItemFragment(): ProductItemFragment
 }

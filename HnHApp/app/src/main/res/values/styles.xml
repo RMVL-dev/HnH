@@ -5,7 +5,42 @@
         <item name="android:textSize">@dimen/text_h1_size</item>
         <item name="android:lineSpacingExtra">@dimen/text_h1_line</item>
     </style>
-    
+
+    <style name="TextAppearanceHnH.Product"/>
+
+    <style name="TextAppearanceHnH.Product.Size">
+        <item name="android:textSize">@dimen/text_field</item>
+        <item name="android:layout_marginStart">@dimen/normal_100</item>
+        <item name="android:layout_marginEnd">@dimen/normal_100</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TextAppearanceHnH.Product.H1">
+        <item name="android:textSize">@dimen/normal_20sp</item>
+        <item name="android:lineSpacingExtra">@dimen/text_h1_line</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearanceHnH.Product.BS">
+        <item name="android:textSize">@dimen/text_field</item>
+        <item name="android:paddingStart">@dimen/best_seller_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/best_seller_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/best_seller_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/best_seller_padding_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/best_seller_shape</item>
+    </style>
+
+    <style name="TextAppearanceHnH.Product.Department">
+        <item name="android:textColor">@color/silver_chalice</item>
+        <item name="android:textSize">@dimen/normal_14sp</item>
+    </style>
+
+    <style name="TextAppearanceHnH.Product.Description"/>
+    <style name="TextAppearanceHnH.Product.Materials">
+        <item name="android:textColor">@color/silver_chalice</item>
+    </style>
+
     <style name="Theme.HnH.ShapeAppearanceTextInputLayout" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">8dp</item>
@@ -24,7 +59,7 @@
     </style>
 
     <style name="TextAppearanceHnH.productPrice">
-        <item name="android:textSize">@dimen/text_field</item>
+        <item name="android:textSize">@dimen/normal_20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

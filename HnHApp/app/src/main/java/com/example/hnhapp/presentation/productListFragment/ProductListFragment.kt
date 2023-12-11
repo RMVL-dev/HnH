@@ -2,6 +2,7 @@ package com.example.hnhapp.presentation.productListFragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.data.responseModel.ResponseState
 import com.example.hnhapp.databinding.FragmentProductListBinding
@@ -47,14 +50,14 @@ class ProductListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        productViewModel.getProductList()
+        productViewModel.getAllItems()
         productViewModel.productData.observe(viewLifecycleOwner){value ->
             when(value){
                 is ResponseState.Error -> {
                     errorOrEmptyState()
                     value.message?.let {
                         binding.errorScreen.setErrorState(
-                            click = {productViewModel.getProductList()},
+                            click = { productViewModel.getAllItems() },
                             errorMes = it
                         )
                     }
@@ -72,13 +75,12 @@ class ProductListFragment : Fragment() {
                     }else{
                         errorOrEmptyState()
                         binding.errorScreen.setErrorState {
-                            productViewModel.getProductList()
+                            productViewModel.getAllItems()
                         }
                     }
                 }
             }
         }
-
     }
 
     private fun errorOrEmptyState(){
@@ -90,12 +92,11 @@ class ProductListFragment : Fragment() {
 
     private fun getAdapter(data:List<Product>):ProductAdapter {
         val adapter = ProductAdapter(data)
-        adapter.setOnClick {
-            Toast.makeText(
-                requireContext(),
-                "BUY button clicked!",
-                Toast.LENGTH_LONG
-            ).show()
+        adapter.setOnClick { position ->
+            findNavController().navigate(ProductListFragmentDirections.actionProductListFragmentToProductItemFragment(position))
+        }
+        adapter.onCardClick {position ->
+            findNavController().navigate(ProductListFragmentDirections.actionProductListFragmentToProductItemFragment(position))
         }
         return adapter
     }

@@ -1,12 +1,10 @@
 package com.example.hnhapp.di
 
-import android.content.Context
 import com.example.hnhapp.HnHApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
 import javax.inject.Singleton
 
 @Singleton
@@ -16,7 +14,8 @@ import javax.inject.Singleton
         NetworkModule::class,
         ApplicationModule::class,
         ActivityModule::class,
-        FragmentModule::class
+        FragmentModule::class,
+        StorageModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<HnHApplication> {

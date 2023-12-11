@@ -3,6 +3,7 @@
     <dimen name="normal_100">16dp</dimen>
     <dimen name="normal_200">32dp</dimen>
     <dimen name="normal_300">48dp</dimen>
+    <dimen name="normal_400">64dp</dimen>
     <dimen name="text_h1_size">34sp</dimen>
     <dimen name="text_h1_line">36dp</dimen>
     <dimen name="normal_18sp">18sp</dimen>
@@ -10,7 +11,12 @@
     <dimen name="normal_14sp">14sp</dimen>
     <dimen name="normal_12sp">12sp</dimen>
     <dimen name="normal_20sp">20sp</dimen>
+    <dimen name="normal_24sp">24sp</dimen>
+    <dimen name="picture_size">284dp</dimen>
     <dimen name="text_field_hint">@dimen/text_field</dimen>
     <dimen name="text_material_button">16sp</dimen>
     <dimen name="error_assistive_text">@dimen/text_field</dimen>
+    <dimen name="best_seller_padding_horizontal">15dp</dimen>
+    <dimen name="best_seller_padding_vertical">5dp</dimen>
+    <dimen name="small_pictures_size">40dp</dimen>
 </resources>

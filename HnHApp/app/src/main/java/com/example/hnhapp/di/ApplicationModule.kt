@@ -5,6 +5,7 @@ import com.example.hnhapp.HnHApplication
 import dagger.Module
 import dagger.Provides
 
+
 @Module
 class ApplicationModule {
     @Provides

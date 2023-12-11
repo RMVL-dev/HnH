@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/product_images"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/picture_size"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/first_pic"
+        android:layout_height="@dimen/small_pictures_size"
+        android:layout_width="@dimen/small_pictures_size"
+        android:layout_marginEnd="@dimen/normal_100"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:scaleType="centerCrop"
+
+        android:layout_marginTop="@dimen/normal_100"
+
+        android:background="@drawable/rounded_corner_shape"
+
+        app:layout_constraintTop_toBottomOf="@+id/product_images"
+        app:layout_constraintEnd_toStartOf="@+id/second_pic"
+        />
+
+    <ImageView
+        android:id="@+id/second_pic"
+        android:layout_height="@dimen/small_pictures_size"
+        android:layout_width="@dimen/small_pictures_size"
+        android:background="@drawable/rounded_corner_shape"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:scaleType="centerCrop"
+
+        android:layout_marginTop="@dimen/normal_100"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_images"
+        />
+
+    <ImageView
+        android:id="@+id/third_pic"
+        android:layout_height="@dimen/small_pictures_size"
+        android:layout_width="@dimen/small_pictures_size"
+        android:background="@drawable/rounded_corner_shape"
+        android:layout_marginStart="@dimen/normal_100"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:scaleType="centerCrop"
+
+        android:layout_marginTop="@dimen/normal_100"
+
+        app:layout_constraintTop_toBottomOf="@+id/product_images"
+        app:layout_constraintStart_toEndOf="@+id/second_pic"
+        />
+</merge>
