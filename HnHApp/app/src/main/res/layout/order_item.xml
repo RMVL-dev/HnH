@@ -9,6 +9,8 @@
         android:id="@+id/add_one"
         android:layout_width="32dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:src="@drawable/add_one"
         android:background="@drawable/add_one_shape"
         android:clickable="true"
@@ -23,6 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
+
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
 
         android:gravity="center"
         android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
@@ -41,6 +46,8 @@
         android:background="@drawable/remove_one_shape"
         android:clickable="true"
         android:focusable="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
 
         android:layout_alignParentEnd="true"
         />

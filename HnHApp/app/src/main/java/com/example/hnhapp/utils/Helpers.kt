@@ -10,7 +10,7 @@ import java.util.Locale
 
 fun getFormattedCurrency(currency:Int): String? =
     try {
-        "${NumberFormat.getInstance(Locale(" ru ", " RU ")).format(currency)} \u20BD"
+        "${NumberFormat.getInstance(Locale("ru", "RU")).format(currency)} \u20BD"
     }catch (e:Exception){
         null
     }
