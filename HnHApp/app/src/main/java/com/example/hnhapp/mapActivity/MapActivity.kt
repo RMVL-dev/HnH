@@ -71,6 +71,8 @@ class MapActivity : AppCompatActivity() {
 
         //Завершение контракта с активити
         binding.closeButton.setOnClickListener {
+            val result = Intent().putExtra(MapActivityContract.KEY, "")
+            setResult(Activity.RESULT_OK, result)
             finish()
         }
         binding.textEnterChoice.setOnClickListener {
