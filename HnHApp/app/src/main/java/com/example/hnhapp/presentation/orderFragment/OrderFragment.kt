@@ -74,7 +74,7 @@ class OrderFragment : Fragment() {
                 .into(binding.orderItemImage)
             binding.orderItemTitle.text = "${product.sizes[0].value} • ${product.title}"
             binding.orderItemDepartment.text = product.department
-            binding.btBuyNow.text = "Купить за ${getFormattedCurrency(product.price)}"
+            //binding.btBuyNow.text = "Купить за ${getFormattedCurrency(product.price)}"
         }
 
         setHouseOnClickListeners()
@@ -158,6 +158,9 @@ class OrderFragment : Fragment() {
         //каунтер для кол-ва товаров
         orderViewModel.counterOrderItems.observe(viewLifecycleOwner){counter ->
             binding.counter.setCountedValue(counter = counter)
+            orderViewModel.product.observe(viewLifecycleOwner) { product ->
+                binding.btBuyNow.text = "Купить за ${getFormattedCurrency(product.price * counter)}"
+            }
         }
 
         binding.counter.setIncrease { orderViewModel.increaseOrderCounter() }

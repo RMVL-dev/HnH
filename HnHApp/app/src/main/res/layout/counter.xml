@@ -4,19 +4,21 @@
     android:layout_height="28dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/counter_shape">
-    
-    <ImageView
-        android:id="@+id/add_one"
+
+    <TextView
+        android:id="@+id/remove_one"
         android:layout_width="32dp"
         android:layout_height="match_parent"
-        android:src="@drawable/add_one"
+        android:text="---"
         android:background="@drawable/add_one_shape"
         android:clickable="true"
         android:focusable="true"
+        android:gravity="center"
+        android:layout_margin="1dp"
+        android:letterSpacing="-0.07"
 
         android:layout_alignParentStart="true"
         />
-    
     
     <TextView
         android:id="@+id/order_items_counter"
@@ -31,22 +33,22 @@
 
         tools:text = "3"
 
-        android:layout_toEndOf="@id/add_one"
-        android:layout_toStartOf="@id/remove_one"
+        android:layout_toEndOf="@id/remove_one"
+        android:layout_toStartOf="@id/add_one"
         />
 
-    <ImageView
-        android:id="@+id/remove_one"
+    <TextView
+        android:id="@+id/add_one"
         android:layout_width="32dp"
         android:layout_height="match_parent"
-        android:src="@drawable/remove_one"
+        android:text="+"
         android:background="@drawable/remove_one_shape"
         android:clickable="true"
         android:focusable="true"
+        android:gravity="center"
+        android:layout_margin="1dp"
 
         android:layout_alignParentEnd="true"
         />
-    
-    
     
 </RelativeLayout>

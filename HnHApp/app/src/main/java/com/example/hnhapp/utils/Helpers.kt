@@ -8,9 +8,9 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-fun getFormattedCurrency(currency:String): String? =
+fun getFormattedCurrency(currency:Int): String? =
     try {
-        NumberFormat.getCurrencyInstance(Locale("ru", "RU")).format(currency.toInt())
+        "${NumberFormat.getInstance(Locale("ru", "RU")).format(currency)} \u20BD"
     }catch (e:Exception){
         null
     }

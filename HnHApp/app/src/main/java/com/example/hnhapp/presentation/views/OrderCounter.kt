@@ -5,18 +5,19 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import com.example.hnhapp.R
-import com.example.hnhapp.databinding.OrderItemBinding
+import com.example.hnhapp.databinding.CounterBinding
 
 class OrderCounter @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : RelativeLayout(context, attrs) {
 
-    private var binding:OrderItemBinding? = null
+    private var binding:CounterBinding? = null
 
     init {
-        binding = OrderItemBinding.bind(
-            LayoutInflater.from(context).inflate(R.layout.order_item,this, true)
+        binding = CounterBinding.bind(
+            LayoutInflater.from(context).inflate(R.layout.counter,this, true)
         )
+
     }
 
     fun setCountedValue(counter:Int){

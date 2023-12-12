@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
 
                 android:textAppearance="@style/TextAppearanceHnH.productPrice"
-                android:textSize="24sp"
+                android:textSize="@dimen/normal_24sp"
 
                 android:layout_below="@+id/product_images"
                 tools:text = "@string/preview_price"
@@ -93,8 +93,7 @@
                 android:layout_below="@id/product_item_department"
                 android:layout_marginTop="@dimen/normal_200"
                 app:endIconMode="custom"
-                app:endIconDrawable="@drawable/arrow_forward_24"
-                app:endIconTint="@color/smalt"
+                app:endIconDrawable="@drawable/ic_arrow_forward_24"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText

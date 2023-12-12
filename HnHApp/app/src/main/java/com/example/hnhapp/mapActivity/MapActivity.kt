@@ -70,13 +70,18 @@ class MapActivity : AppCompatActivity() {
         }
 
         //Завершение контракта с активити
-        binding.tilEnterHouse.setEndIconOnClickListener {
+        binding.closeButton.setOnClickListener {
+            val result = Intent().putExtra(MapActivityContract.KEY, "")
+            setResult(Activity.RESULT_OK, result)
             finish()
         }
-        binding.etAddress.setOnClickListener {
+        binding.textEnterChoice.setOnClickListener {
             finish()
         }
-        binding.tilEnterHouse.setStartIconOnClickListener {
+        binding.enterHouse.setOnClickListener {
+            finish()
+        }
+        binding.currentHouse.setOnClickListener {
             finish()
         }
     }
@@ -111,10 +116,10 @@ class MapActivity : AppCompatActivity() {
             binding.map.mapWindow.map.selectGeoObject(selectionMetadata)
 
             if (it.geoObject.name.isNullOrEmpty()){
-                binding.tilAddress.visibility = View.GONE
+                binding.currentHouse.visibility = View.GONE
             }else{
-                binding.etAddress.setText(it.geoObject.name)
-                binding.tilAddress.visibility = View.VISIBLE
+                binding.currentHouse.text = it.geoObject.name
+                binding.currentHouse.visibility = View.VISIBLE
                 val result = Intent().putExtra(MapActivityContract.KEY, it.geoObject.name)
                 setResult(Activity.RESULT_OK, result)
             }
