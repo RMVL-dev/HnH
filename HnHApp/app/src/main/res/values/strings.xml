@@ -41,4 +41,10 @@
     <string name="success_order_button_text">Успешный заказ</string>
     <string name="order_pattern">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
     <string name="snackbar_pattern">dd.MM.YY</string>
+    <string name="settings_firstname_field_tint_text">Имя</string>
+    <string name="settings_lastname_field_tint_text">Фамилия</string>
+    <string name="settings_occupation_filed_tint_text">Род деятельности</string>
+    <string name="settings_other_occupation_field_tint_text">Другой род деятельности</string>
+    <string name="settings_button_text">изменить</string>
+
 </resources>

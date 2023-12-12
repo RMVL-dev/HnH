@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.accountSettings.AccountSettingsFragment"
+    >
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:navigationIcon="@drawable/outline_arrow_back_24"
+        app:navigationIconTint="@color/smalt"
+        />
+
+    <RelativeLayout
+        android:id="@+id/settings_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/settings_toolbar"
+        android:layout_marginStart="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100">
+
+
+        <FrameLayout
+            android:id="@+id/profile_image_layout"
+            android:layout_width="@dimen/setting_image_size"
+            android:layout_height="@dimen/setting_image_size"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            >
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@color/silver_chalice"
+                app:shapeAppearance="@style/circleImage"
+
+                />
+            <ImageView
+                android:id="@+id/ic_camera_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_settings_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings_firstname_field_tint_text"
+            android:layout_marginTop="@dimen/normal_200"
+
+            android:layout_below="@+id/profile_image_layout"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_settings_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_settings_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings_lastname_field_tint_text"
+            android:layout_marginTop="@dimen/normal_200"
+
+            android:layout_below="@+id/til_settings_firstname"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/et_settings_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_settings_occupation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings_occupation_filed_tint_text"
+            android:layout_marginTop="@dimen/normal_200"
+
+            android:layout_below="@+id/til_settings_lastname"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/et_settings_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:inputType="none"
+                android:editable="false"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_settings_other_occupation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings_other_occupation_field_tint_text"
+            android:layout_marginTop="@dimen/normal_200"
+            android:visibility="gone"
+
+            android:layout_below="@+id/til_settings_occupation"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_settings_other_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.example.hnhapp.presentation.views.ButtonWithIndicator
+            android:id="@+id/setting_vg_change_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal_100"
+            android:layout_alignParentBottom="true"
+            >
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/setting_bt_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_button_text"
+                />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/setting_bt_progress_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                />
+        </com.example.hnhapp.presentation.views.ButtonWithIndicator>
+
+    </RelativeLayout>
+
+</RelativeLayout>

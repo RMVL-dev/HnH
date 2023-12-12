@@ -1,5 +1,6 @@
 package com.example.hnhapp.di
 
+import com.example.hnhapp.presentation.accountSettings.AccountSettingsFragment
 import com.example.hnhapp.presentation.orderFragment.OrderFragment
 import com.example.hnhapp.presentation.productItemFragment.ProductItemFragment
 import com.example.hnhapp.presentation.productListFragment.ProductListFragment
@@ -20,4 +21,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun orderFragment():OrderFragment
+
+    @ContributesAndroidInjector
+    abstract fun settingsFragment():AccountSettingsFragment
 }
