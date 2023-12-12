@@ -13,12 +13,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.hnhapp.R
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.databinding.FragmentProductItemBinding
 import com.example.hnhapp.presentation.productItemFragment.bottomSheet.SizesBottomSheet
 import com.example.hnhapp.presentation.productListFragment.ProductViewModel
 import com.example.hnhapp.utils.convertListToStringWithBullets
 import com.example.hnhapp.utils.getFormattedCurrency
+import com.example.hnhapp.utils.settingSnackBar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -84,6 +86,22 @@ class ProductItemFragment : Fragment() {
             }
         }
 
+        binding.btProductBuyNow.setOnClickListener {
+            if (product != null &&
+                binding.etProductSize.text?.isNotEmpty() == true
+            ) {
+                val jsonProduct = productViewModel.getProductToOrderJson(product = product)
+                findNavController().navigate(
+                    ProductItemFragmentDirections.actionProductItemFragmentToOrderFragment(
+                        product = jsonProduct
+                    )
+                )
+            }else if(binding.etProductSize.text?.isEmpty() == true){
+                view.settingSnackBar("Не выбран размер", R.color.error_sign_in).show()
+            }else{
+                view.settingSnackBar("Не выбран товар", R.color.error_sign_in).show()
+            }
+        }
     }
 
     /**
@@ -92,11 +110,15 @@ class ProductItemFragment : Fragment() {
     private fun customClickToEditText(product:Product){
         val bottomSheet =  SizesBottomSheet(listSizes = product.sizes)
         bottomSheet.setOnclick {position ->
+            val size = product.sizes[position]
+            binding.etProductSize.setText(size.value)
+            productViewModel.setSize(size)
             binding.etProductSize.setText(product.sizes[position].value)
             bottomSheet.dismiss()
         }
         bottomSheet.show(requireActivity().supportFragmentManager,"tag")
     }
+
 
     private fun initToolBar(title:String){
         binding.productItemToolbar

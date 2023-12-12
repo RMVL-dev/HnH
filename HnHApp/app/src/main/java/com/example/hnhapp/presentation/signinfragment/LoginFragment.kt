@@ -82,13 +82,14 @@ class LoginFragment : Fragment() {
                 is ResponseState.Error -> {
                     value.message?.let {
                         view.settingSnackBar(
-                            message = it
+                            message = it,
+                            colorId = R.color.error_sign_in
                         ).show()
                     }
-                    binding.vgBtSignInAction.otherStates()
+                    binding.vgBtSignInAction.otherStates(buttonTextId = R.string.sign_in)
                 }
                 is ResponseState.Success -> {
-                    binding.vgBtSignInAction.otherStates()
+                    binding.vgBtSignInAction.otherStates(buttonTextId = R.string.sign_in)
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToProductListFragment()
                     )

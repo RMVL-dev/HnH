@@ -1,6 +1,8 @@
 package com.example.hnhapp.data.repository
 
 import com.example.hnhapp.data.HnHService
+import com.example.hnhapp.data.order.request.OrderRequest
+import com.example.hnhapp.data.order.response.OrderResponse
 import com.example.hnhapp.data.productResponse.Product
 import com.example.hnhapp.data.requestModel.LoginResponse
 import com.example.hnhapp.data.requestModel.RequestLogin
@@ -18,13 +20,12 @@ class HnHRepositoryImpl @Inject constructor (
     suspend fun getProductList(): List<Product> =
         service.getProductList().data
 
-
-    //suspend fun insertItem(entity: TestEntity) =
-    //    dataSource.addItem(entity)
-
     suspend fun insertItem(entity: MainEntity) =
         dataSource.addItem(entity)
 
     fun getAllProductsFromDB() =
         dataSource.getProducts()
+
+    suspend fun order(orderRequest: OrderRequest): OrderResponse =
+        service.order(order = orderRequest).data
 }

@@ -12,9 +12,6 @@ class ProductUseCase @Inject constructor(
     suspend fun getProductList(): List<Product> =
         repository.getProductList()
 
-    //suspend fun insertItem(entity: TestEntity) =
-    //    repository.insertItem(entity)
-
     suspend fun insertItem(entity: MainEntity) =
         repository.insertItem(entity)
 

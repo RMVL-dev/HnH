@@ -59,21 +59,22 @@ class MainActivity : AppCompatActivity() {
     private fun askNotificationPermission(){
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-            == PackageManager.PERMISSION_DENIED){
-            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-        }else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-            val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
-            alertDialogBuilder
-                .setTitle(getString(R.string.request_perm_title))
-                .setMessage(getString(R.string.request_perm_body))
-                .setNegativeButton(getString(R.string.request_perm_negative)) { dialog, which ->
+            == PackageManager.PERMISSION_DENIED) {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+                alertDialogBuilder
+                    .setTitle(getString(R.string.request_perm_title))
+                    .setMessage(getString(R.string.request_perm_body))
+                    .setNegativeButton(getString(R.string.request_perm_negative)) { dialog, which ->
 
-                }
-                .setPositiveButton(getString(R.string.request_perm_positive)) { dialog, which ->
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-            val dialog: AlertDialog = alertDialogBuilder.create()
-            dialog.show()
+                    }
+                    .setPositiveButton(getString(R.string.request_perm_positive)) { dialog, which ->
+                        requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    }
+                val dialog: AlertDialog = alertDialogBuilder.create()
+                dialog.show()
+            }
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 

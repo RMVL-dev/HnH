@@ -12,6 +12,9 @@ android {
     compileSdk = 34
 
     defaultConfig {
+
+        buildConfigField("String", "MAP_API_KEY", "\"37ac6cb9-71dc-4774-b9f5-3954dfb9665e\"")
+
         applicationId = "com.example.hnhapp"
         minSdk = 24
         targetSdk = 34
@@ -38,6 +41,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -80,8 +84,11 @@ dependencies {
 
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-    implementation ("com.google.firebase:firebase-messaging-ktx")
-    implementation ("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
+    //yandex map kit
+    implementation("com.yandex.android:maps.mobile:4.4.0-lite")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

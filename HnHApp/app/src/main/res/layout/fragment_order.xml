@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.orderFragment.OrderFragment"
+    >
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/order_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:navigationIcon="@drawable/outline_arrow_back_24"
+        app:titleTextColor="@color/white"
+        android:background="@color/smalt"
+        android:theme="@style/toolbarArrow"
+
+        android:layout_alignParentTop="true"
+        />
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_100"
+        android:layout_marginEnd="@dimen/normal_100"
+        android:layout_below="@+id/order_toolbar"
+        >
+    <ImageView
+        android:id="@+id/order_item_image"
+        android:layout_height="@dimen/item_image_size"
+        android:layout_width="@dimen/item_image_size"
+
+        tools:src="@mipmap/ic_launcher"
+
+        android:layout_alignParentStart="true"
+
+        android:layout_marginTop="@dimen/normal_100"
+        android:layout_marginBottom="@dimen/normal_100"
+        />
+
+    <TextView
+        android:id="@+id/order_item_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productItemTitle"
+
+        tools:text = "@string/preview_title_product"
+        android:layout_marginStart="@dimen/normal_100"
+
+        android:layout_alignTop="@id/order_item_image"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/order_item_image"
+        />
+
+    <TextView
+        android:id="@+id/order_item_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textAppearance="@style/TextAppearanceHnH.productItemDepartment"
+
+        tools:text="@string/preview_department"
+
+        android:layout_alignStart="@id/order_item_title"
+        android:layout_below="@+id/order_item_title"
+
+        />
+    
+    <com.example.hnhapp.presentation.views.OrderCounter
+        android:id="@+id/counter"
+        android:layout_width="114dp"
+        android:layout_height="28dp"
+
+        android:layout_alignBottom="@+id/order_item_image"
+        android:layout_alignParentEnd="true"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_house_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/order_item_image"
+        android:layout_marginTop="@dimen/normal_200"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_arrow_forward_24"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_house_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_house_tint_text"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:clickable="true"
+            android:focusable="true"
+            android:editable="false"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_apartments_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_house_address"
+        android:layout_marginTop="@dimen/normal_200"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_apartments_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_aparts_tint_text"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:textColor="@color/black"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_order_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_apartments_number"
+        android:layout_marginTop="@dimen/normal_200"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_arrow_forward_24"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_order_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/order_date_tint_text"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:editable="false"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.example.hnhapp.presentation.views.ButtonWithIndicator
+        android:id="@+id/order_now_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="@dimen/normal_100"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_buy_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text = "buy for 27 000"
+            />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/bt_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+    </com.example.hnhapp.presentation.views.ButtonWithIndicator>
+    </RelativeLayout>
+</RelativeLayout>

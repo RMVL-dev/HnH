@@ -1,5 +1,6 @@
 package com.example.hnhapp.utils
 
+import android.graphics.Color
 import android.view.View
 import com.example.hnhapp.R
 import com.example.hnhapp.data.responseModel.ErrorBaseResponse
@@ -8,10 +9,10 @@ import com.google.gson.Gson
 import retrofit2.HttpException
 
 
-fun View.settingSnackBar(message:String): Snackbar =
+fun View.settingSnackBar(message:String, colorId:Int): Snackbar =
     Snackbar
         .make(this, message, Snackbar.LENGTH_LONG)
-        .setBackgroundTint(context.resources.getColor(R.color.error_sign_in))
+        .setBackgroundTint(context.resources.getColor(colorId))
         .setTextColor(context.resources.getColor(R.color.seashell))
 
 

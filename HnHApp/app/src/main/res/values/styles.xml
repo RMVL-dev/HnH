@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="TextAppearanceHnH.MapMainText">
+        <item name="android:textSize">@dimen/normal_20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextAppearanceHnH.MapChoiceText">
+        <item name="android:textSize">@dimen/normal_12sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/button_colors</item>
+    </style>
+
+    <style name="toolbarArrow" parent="Theme.HnHApp">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+    
+    <style name="DialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/smalt</item>
+        <item name="android:buttonBarButtonStyle">@style/dialog_button</item>
+    </style>
+    
+    <style name="dialog_button" parent="ThemeOverlay.Material3.Button.TextButton">
+        <item name="android:textColor">@color/smalt</item>
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textAppearance">@style/TextAppearanceHnH.materialButton</item>
+    </style>
+    
     <style name="TextAppearanceHnH" parent="android:TextAppearance"/>
     <style name="TextAppearanceHnH.H1">
         <item name="android:textSize">@dimen/text_h1_size</item>

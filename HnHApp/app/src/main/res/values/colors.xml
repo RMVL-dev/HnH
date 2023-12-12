@@ -7,9 +7,11 @@
     <color name="white_50pc">@color/white</color>
     <color name="seashell">#FFF1F1F1</color>
     <color name="silver_chalice">#FFA4A4A4</color>
+    <color name="silver_counter">#FFF1F1F1</color>
     <color name="error_sign_in">#FFED4337</color>
     <color name="test_color">#FFBF40BF</color>
     <color name="transparent">#00000000</color>
     <color name="best_seller">#FF2E7D32</color>
     <color name="place_holder_color">#FFFFFFFF</color>
+    <color name="counter_button_color">#FFF1F1F1</color>
 </resources>

@@ -2,6 +2,7 @@ package com.example.hnhapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.hnhapp.presentation.orderFragment.OrderViewModel
 import com.example.hnhapp.presentation.productListFragment.ProductViewModel
 import com.example.hnhapp.presentation.signinfragment.SignInViewModel
 import dagger.Binds
@@ -24,4 +25,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProductViewModel::class)
     abstract fun productViewModel(productViewModel: ProductViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OrderViewModel::class)
+    abstract fun orderViewModel(orderViewModel: OrderViewModel):ViewModel
 }

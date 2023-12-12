@@ -12,6 +12,7 @@
         <item name="textInputStyle">@style/Theme.HnHApp.TextInputLayout</item>
         <item name="materialButtonStyle">@style/Theme.HnH.Button</item>
         <item name="circularProgressIndicatorStyle">@style/progressbar</item>
+        <item name="android:datePickerDialogTheme">@style/DialogTheme</item>
     </style>
 
 
